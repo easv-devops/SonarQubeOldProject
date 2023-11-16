@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "WauJ8tnXzHeUXs/XRLCoVa4g6w+gfznhcB1skemW003FoB8BYym0Yr/I//e1942MWyjjclSFdNjYBky86N4bng==",
+  "dgSpecHash": "zH3yGa3BNEaa8cPGKNrxV2CPmQNe8TvXE8GM0Msq/5JrHEf+VhOmNZrYCzj5h4QFzM/+jP92lBHseuOuDabbWQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Atanas Stoyanov\\OneDrive - Erhvervsakademi Sydvest\\Dokumenter\\GitHub\\DA_Education_WebApp\\Back-End\\infrastructure\\infrastructure.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Atanas Stoyanov\\.nuget\\packages\\dapper\\2.1.21\\dapper.2.1.21.nupkg.sha512",
+    "C:\\Users\\Atanas Stoyanov\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\6.0.0\\microsoft.extensions.logging.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\Atanas Stoyanov\\.nuget\\packages\\npgsql\\7.0.6\\npgsql.7.0.6.nupkg.sha512"
+  ],
   "logs": []
 }

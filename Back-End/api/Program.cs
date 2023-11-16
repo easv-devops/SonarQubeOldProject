@@ -1,44 +1,67 @@
+using infrastructure;
+using Microsoft.Net.Http.Headers;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+// builder.Services.AddNpgsqlDataSource(Utilities.ProperlyFormattedConnectionString,
+    // dataSourceBuilder => dataSourceBuilder.EnableParameterLogging());
+// builder.Services.AddSingleton<Repository>();
+// builder.Services.AddSingleton<Service>();
+builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+
+
+/*
+var frontEndRelativePath = "../../../Fromt-end/my-app/www";
+
+builder.Services.AddSpaStaticFiles(
+    configuration => { configuration.RootPath = frontEndRelativePath; });
+    */
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
 
-app.UseHttpsRedirection();
+app.UseSwagger();
+app.UseSwaggerUI();
+app.MapControllers();
+//app.UseMiddleware<GlobalExceptionHandler>();
 
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
+app.UseCors(c => c.AllowAnyHeader().AllowAnyOrigin().AllowAnyMethod());
+/*
+app.UseSpaStaticFiles(new StaticFileOptions()
+ {
+     OnPrepareResponse = ctx =>
+     {
+        const int durationInSeconds = 60 * 60 * 24;
+        ctx.Context.Response.Headers[HeaderNames.CacheControl] =
+            "public,max-age=" + durationInSeconds;
+    }
+});
 
-app.MapGet("/weatherforecast", () =>
+app.Map($"/{frontEndRelativePath}", (IApplicationBuilder frontendApp) => 
 {
-    var forecast =  Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
-    return forecast;
-})
-.WithName("GetWeatherForecast")
-.WithOpenApi();
+    frontendApp.UseSpa(spa => { spa.Options.SourcePath = "../../../Fromt-end/my-app/www"; });
+});
+
+
+app.UseSpa(conf =>
+{
+    conf.Options.SourcePath = frontEndRelativePath;
+});
+*/
+
+
+app.UseCors(options =>
+{
+    options.SetIsOriginAllowed(origin => true)
+        .AllowAnyMethod()
+        .AllowAnyHeader()
+        .AllowCredentials();
+});
+//app.UseSpaStaticFiles();
+
+//app.UseSpa(conf => { conf.Options.SourcePath = frontEndRelativePath; });
+app.MapControllers();
 
 app.Run();
-
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}
