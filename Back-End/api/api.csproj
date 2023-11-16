@@ -10,11 +10,13 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.0-rc.2.23480.2" />
     <PackageReference Include="Npgsql" Version="7.0.6" />
+    <PackageReference Include="Npgsql.DependencyInjection" Version="7.0.4" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\infrastructure\infrastructure.csproj" />
+    <ProjectReference Include="..\Service\Service.csproj" />
   </ItemGroup>
 
 </Project>
