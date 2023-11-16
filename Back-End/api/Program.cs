@@ -1,16 +1,19 @@
 using infrastructure;
+using infrastructure.Data;
 using Microsoft.Net.Http.Headers;
+using Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// builder.Services.AddNpgsqlDataSource(Utilities.ProperlyFormattedConnectionString,
-    // dataSourceBuilder => dataSourceBuilder.EnableParameterLogging());
-// builder.Services.AddSingleton<Repository>();
-// builder.Services.AddSingleton<Service>();
+builder.Services.AddNpgsqlDataSource(Utilities.ProperlyFormattedConnectionString,
+dataSourceBuilder => dataSourceBuilder.EnableParameterLogging());
+
+builder.Services.AddSingleton<UserRepository>();
+builder.Services.AddSingleton<UserService>();
+
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
 
 
 /*
