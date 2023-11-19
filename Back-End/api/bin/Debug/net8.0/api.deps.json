@@ -111,6 +111,9 @@
         }
       },
       "Core/1.0.0": {
+        "dependencies": {
+          "Dapper": "2.1.21"
+        },
         "runtime": {
           "Core.dll": {}
         }

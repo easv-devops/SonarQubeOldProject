@@ -16,7 +16,7 @@ namespace infrastructure.Data
 
         public IEnumerable<User> GetAll()
         {
-            var sql = $@"select * from da_education.users";
+            var sql = $@"SELECT * FROM da_education.users";
             using(var conn = _dataSource.OpenConnection())
             {
                 return conn.Query<User>(sql);
@@ -25,7 +25,7 @@ namespace infrastructure.Data
 
         public User GetById(int id)
         {
-            var sql = $@"select from da_education.users where id=@id;";
+            var sql = $@"select * from da_education.users where id=@id;";
 
             using(var conn = _dataSource.OpenConnection())
             {
@@ -35,14 +35,14 @@ namespace infrastructure.Data
 
         public void Create(User user)
         {
-            var sql = $@"insert into da_education.users (username, email, password, short_description)
-                        values (@username, @email, @password, @short_description)
+            var sql = $@"insert into da_education.users (username, email, password, shortDescription)
+                        values (@username, @email, @password, @shortDescription)
                         RETURNING *";
 
             using (var conn = _dataSource.OpenConnection())
             {
                 var parameters = new {username = user.Username, email = user.Email,
-                                      password = user.Password, short_description = user.ShortDescription};
+                                      password = user.Password, shortDescription = user.ShortDescription};
                 
                 conn.Query<User>(sql, parameters);
             }
@@ -60,12 +60,12 @@ namespace infrastructure.Data
         public void Update(User user)
         {
             var sql = $@"update da_education.users set username = @username, email = @email,
-                        password = @password, short_description = @short_description where id=@id";
+                        password = @password, shortDescription = @shortDescription where id=@id";
 
             using(var conn = _dataSource.OpenConnection())
             {
                 var parameters = new {username = user.Username, email = user.Email, password = user.Password,
-                short_description = user.ShortDescription, id = user.Id};
+                shortDescription = user.ShortDescription, id = user.Id};
                 
                 conn.Execute(sql, parameters);
             }
