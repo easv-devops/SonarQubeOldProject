@@ -22,9 +22,11 @@ namespace api.Controllers
         [Route("/api/users")]
         public ResponseDto GetAllUsers()
         {
+
             return new ResponseDto()
             {
-                MessageToClient = "Here are all the users!"
+                MessageToClient = "Here are all the users!",
+                ResponseData = _userService.GetUsers()
             };
         }
         
