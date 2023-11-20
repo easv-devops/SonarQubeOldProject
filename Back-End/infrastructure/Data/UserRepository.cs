@@ -33,18 +33,18 @@ namespace infrastructure.Data
             }
         }
 
-        public void Create(User user)
+        public User Create(User user)
         {
-            var sql = $@"insert into da_education.users (username, email, password, shortDescription)
-                        values (@username, @email, @password, @shortDescription)
+            var sql = $@"insert into da_education.users (username, email, password, shortdescription)
+                        values (@username, @email, @password, @shortdescription)
                         RETURNING *";
 
             using (var conn = _dataSource.OpenConnection())
             {
                 var parameters = new {username = user.Username, email = user.Email,
-                                      password = user.Password, shortDescription = user.ShortDescription};
+                                      password = user.Password, shortdescription = user.ShortDescription};
                 
-                conn.Query<User>(sql, parameters);
+                return conn.QueryFirst<User>(sql, parameters);
             }
         }
 
@@ -57,17 +57,21 @@ namespace infrastructure.Data
             }
         }
 
-        public void Update(User user)
+        public User Update(int id, User user)
         {
             var sql = $@"update da_education.users set username = @username, email = @email,
-                        password = @password, shortDescription = @shortDescription where id=@id";
+                        password = @password, shortdescription = @shortdescription where id=@id";
 
             using(var conn = _dataSource.OpenConnection())
             {
                 var parameters = new {username = user.Username, email = user.Email, password = user.Password,
-                shortDescription = user.ShortDescription, id = user.Id};
+                shortdescription = user.ShortDescription, id};
                 
+                // Continue with the update
                 conn.Execute(sql, parameters);
+
+                // Optionally, you can return the updated user here
+                return user;
             }
         }
     }
