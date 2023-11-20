@@ -10,8 +10,8 @@ namespace Core.Interfaces
     {
         IEnumerable<User> GetAll();
         User GetById(int id);
-        void Create(User user);
-        void Update(User user);
+        User Create(User user);
+        User Update(int id ,User user);
         void Delete(int id);
     }
 }
