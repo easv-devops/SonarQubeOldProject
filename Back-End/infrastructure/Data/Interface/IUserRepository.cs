@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Core.Enteties;
 
-namespace Core.Interfaces
+namespace infrastructure.Data.Interface
 {
     public interface IUserRepository
     {
