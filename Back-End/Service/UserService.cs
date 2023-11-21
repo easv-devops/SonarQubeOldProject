@@ -1,5 +1,6 @@
 using Core.Enteties;
 using infrastructure.Data;
+using infrastructure.Data.Repository;
 
 namespace Service
 {

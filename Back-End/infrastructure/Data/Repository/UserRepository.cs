@@ -1,9 +1,10 @@
 using Core.Enteties;
 using Core.Interfaces;
 using Dapper;
+using infrastructure.Data.Interface;
 using Npgsql;
 
-namespace infrastructure.Data
+namespace infrastructure.Data.Repository
 {
     public class UserRepository  : IUserRepository
     {
