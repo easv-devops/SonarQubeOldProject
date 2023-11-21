@@ -57,8 +57,8 @@ namespace Service
             }
             catch(Exception ex)
             {
-        Console.WriteLine($"Error updating user: {ex.Message}");
-        throw; // Re-throw the exception or handle it appropriately
+                Console.WriteLine($"Error updating user: {ex.Message}");
+                throw; // Re-throw the exception or handle it appropriately
             }
         }
         public void DeleteUser(int id)
