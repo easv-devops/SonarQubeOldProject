@@ -18,7 +18,8 @@ namespace infrastructure.Data.Repository
         public IEnumerable<Course> GetAll()
         {
             var sql = $@"select * from da_education.courses 
-            left join da_education.course_level cl on cl.id = courses.experience_level
+            left join
+            da_education.course_level cl on cl.id = courses.experience_level
             left join da_education.users u on u.id = courses.owner_id;";
             using(var conn = _dataSource.OpenConnection())
             {
@@ -28,7 +29,14 @@ namespace infrastructure.Data.Repository
                 
                 Dapper.SqlMapper.SetTypeMap(typeof(Course), map);
 
-                return conn.Query<Course>(sql);
+                return conn.Query<Course, CourseLevel, User, Course>(sql, (course, courseLevel, owner) => 
+                {
+                    course.CourseLevel = courseLevel;
+                    course.Owner = owner;
+                    return course;
+                },
+                splitOn: "id, id"
+                );
 
             }
         }
