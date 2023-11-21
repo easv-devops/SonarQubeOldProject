@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using api.TransferModels;
 using Core.Enteties;
 using Microsoft.AspNetCore.Mvc;
@@ -29,7 +25,7 @@ namespace api.Controllers
             };
         }
 
-        [HttpGet]
+        [HttpGet("{id}")]
         public ResponseDto GetUserById([FromRoute] int id)
         {
             return new ResponseDto()
@@ -49,7 +45,7 @@ namespace api.Controllers
             };
         }
 
-        [HttpPut]
+        [HttpPut("{id}")]
         public ResponseDto UpdateUser([FromRoute] int id,[FromBody]User user)
         {
             return new ResponseDto()
@@ -59,7 +55,7 @@ namespace api.Controllers
             };
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public ResponseDto DeleteUser([FromRoute] int id)
         {   
             _userService.DeleteUser(id);

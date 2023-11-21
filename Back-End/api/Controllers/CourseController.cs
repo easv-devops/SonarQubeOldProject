@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using api.TransferModels;
 using Core.Enteties;
 using Microsoft.AspNetCore.Mvc;
@@ -9,7 +5,7 @@ using Service;
 
 namespace api.Controllers
 {
-    
+
     public class CourseController : BaseApiController
     {
         private readonly CourseService _courseService;

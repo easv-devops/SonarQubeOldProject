@@ -17,7 +17,9 @@ namespace infrastructure.Data.Repository
         
         public IEnumerable<Course> GetAll()
         {
-            var sql = $@"select * from da_education.courses;";
+            var sql = $@"select * from da_education.courses 
+            left join da_education.course_level cl on cl.id = courses.experience_level
+            left join da_education.users u on u.id = courses.owner_id;";
             using(var conn = _dataSource.OpenConnection())
             {
                 var map = new CustomPropertyTypeMap(typeof(Course), (type, columnName) => 
