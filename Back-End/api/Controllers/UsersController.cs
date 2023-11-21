@@ -9,8 +9,7 @@ using Service;
 
 namespace api.Controllers
 {
-    [ApiController]
-    public class UsersController : ControllerBase
+    public class UsersController : BaseApiController
     {
         private readonly UserService _userService;
 
@@ -20,7 +19,6 @@ namespace api.Controllers
         }
 
         [HttpGet]
-        [Route("/api/users")]
         public ResponseDto GetAllUsers()
         {
 
@@ -32,7 +30,6 @@ namespace api.Controllers
         }
 
         [HttpGet]
-        [Route("api/user/{id}")]
         public ResponseDto GetUserById([FromRoute] int id)
         {
             return new ResponseDto()
@@ -43,7 +40,6 @@ namespace api.Controllers
         }
         
         [HttpPost]
-        [Route("api/createUser")]
         public ResponseDto CreateUser([FromBody] User user)
         {
             return new ResponseDto()
@@ -54,7 +50,6 @@ namespace api.Controllers
         }
 
         [HttpPut]
-        [Route("api/updateUser/{id}")]
         public ResponseDto UpdateUser([FromRoute] int id,[FromBody]User user)
         {
             return new ResponseDto()
@@ -65,7 +60,6 @@ namespace api.Controllers
         }
 
         [HttpDelete]
-        [Route("api/deleteUser/{id}")]
         public ResponseDto DeleteUser([FromRoute] int id)
         {   
             _userService.DeleteUser(id);
