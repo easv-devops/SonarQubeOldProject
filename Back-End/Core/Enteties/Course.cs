@@ -17,11 +17,13 @@ namespace Core.Enteties
         [Description("experience_level")]
         public int ExpirienceLevel { get; set; }
         [Required, MinLength(50)]
+        public CourseLevel CourseLevel { get; set; }
         public string Descrpition { get; set; }
         [Required, NotNull]
         [Description("owner_id")]
         public int OwnerId { get; set; }
         [Required, NotNull]
+        public User Owner { get; set; }
         public decimal Price { get; set; }
         
 

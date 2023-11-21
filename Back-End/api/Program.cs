@@ -1,5 +1,6 @@
 using infrastructure;
 using infrastructure.Data;
+using infrastructure.Data.Repository;
 using Microsoft.Net.Http.Headers;
 using Service;
 
@@ -10,6 +11,10 @@ dataSourceBuilder => dataSourceBuilder.EnableParameterLogging());
 
 builder.Services.AddSingleton<UserRepository>();
 builder.Services.AddSingleton<UserService>();
+
+builder.Services.AddSingleton<CourseRepository>();
+builder.Services.AddSingleton<CourseService>();
+
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
