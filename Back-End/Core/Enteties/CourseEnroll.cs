@@ -10,7 +10,9 @@ namespace Core.Enteties
     {
         [Description ("user_id")]
         public int UserId { get; set; }
+        public User User { get; set; }
         [Description("course_id")]
         public int CourseId { get; set; }
+        public Course Course { get; set; }
     }
 }
