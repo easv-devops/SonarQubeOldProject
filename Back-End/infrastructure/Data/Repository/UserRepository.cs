@@ -1,5 +1,4 @@
 using Core.Enteties;
-using Core.Interfaces;
 using Dapper;
 using infrastructure.Data.Interface;
 using Npgsql;
