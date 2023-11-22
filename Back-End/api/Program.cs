@@ -1,7 +1,5 @@
 using infrastructure;
-using infrastructure.Data;
 using infrastructure.Data.Repository;
-using Microsoft.Net.Http.Headers;
 using Service;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -17,6 +15,9 @@ builder.Services.AddSingleton<CourseService>();
 
 builder.Services.AddSingleton<AvatarImageRepository>();
 builder.Services.AddSingleton<AvatarImageService>();
+
+builder.Services.AddSingleton<CourseEnrollRepository>();
+builder.Services.AddSingleton<CourseEnrollService>();
 
 
 builder.Services.AddControllers();
