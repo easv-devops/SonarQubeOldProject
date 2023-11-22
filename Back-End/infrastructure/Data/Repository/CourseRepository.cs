@@ -34,9 +34,7 @@ namespace infrastructure.Data.Repository
                     course.CourseLevel = courseLevel;
                     course.Owner = owner;
                     return course;
-                },
-                splitOn: "id, id"
-                );
+                }, splitOn: "id, id");
 
             }
         }
