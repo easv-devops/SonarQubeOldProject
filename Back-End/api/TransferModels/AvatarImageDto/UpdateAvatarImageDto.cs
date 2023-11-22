@@ -4,12 +4,11 @@ using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Core.Enteties
+namespace api.TransferModels.AvatarImageDto
 {
-    public class AvatarImage : BaseEntity
+    public class UpdateAvatarImageDto
     {
         public int UserId { get; set; }
-        public User User { get; set; }
 
         [Description ("picture_url")]
         public string PictureUrl { get; set; }
