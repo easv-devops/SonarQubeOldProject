@@ -1,4 +1,5 @@
 using api.TransferModels;
+using api.TransferModels.CourseDto;
 using Core.Enteties;
 using Microsoft.AspNetCore.Mvc;
 using Service;
@@ -35,21 +36,23 @@ namespace api.Controllers
         }
 
         [HttpPost]
-        public ResponseDto CreateCourse([FromBody] Course course)
+        public ResponseDto CreateCourse([FromBody] CreateCourseDto course)
         {
             return new ResponseDto()
             {
                 MessageToClient = "Here is the created course " + course,
-                ResponseData = _courseService.Create(course)
+                ResponseData = _courseService.Create(course.Name, 
+                course.ExperienceLevel, course.Description, course.OwnerId, course.Price)
             };
         }
         [HttpPut("{id}")]
-        public ResponseDto UpdateCourse([FromRoute] int id, [FromBody] Course course)
+        public ResponseDto UpdateCourse([FromRoute] int id, [FromBody] UpdateCourseDto course)
         {
             return new ResponseDto()
             {
                 MessageToClient = "Here is the updated course " + course,
-                ResponseData = _courseService.Update(id, course)
+                ResponseData = _courseService.Update(id, course.Name, course.ExperienceLevel, 
+                                                     course.Description, course.OwnerId, course.Price)
             };
         }
         [HttpDelete("{id}")]

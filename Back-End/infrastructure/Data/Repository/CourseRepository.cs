@@ -43,8 +43,12 @@ namespace infrastructure.Data.Repository
 
         public Course GetById(int id)
         {
-            var sql = $@"select * from da_education.courses where id=@id;";
-            using (var conn = _dataSource.OpenConnection())
+            var sql = $@"select * from da_education.courses 
+            left join
+            da_education.course_level cl on cl.id = courses.experience_level
+            left join da_education.users u on u.id = courses.owner_id
+            where courses.id=@id";
+            using(var conn = _dataSource.OpenConnection())
             {
                 var map = new CustomPropertyTypeMap(typeof(Course), (type, columnName) => 
                     type.GetProperties().FirstOrDefault(prop =>
@@ -52,36 +56,54 @@ namespace infrastructure.Data.Repository
                 
                 Dapper.SqlMapper.SetTypeMap(typeof(Course), map);
 
-                return conn.QueryFirst<Course>(sql, new {id});
+                return conn.Query<Course, CourseLevel, User, Course>(sql,(course, courseLevel, owner) => 
+                {
+                    course.CourseLevel = courseLevel;
+                    course.Owner = owner;
+                    return course;
+                } ,new {id}, splitOn: "id, id").First();
             }   
         }
-        public Course Create(Course course)
+        public Course Create(string name, int experience_level, string description, int ownerId, decimal price)
         {
-            var sql = $@"insert into da_education.courser (name, expirience_level,
+            var sql = $@"insert into da_education.courses (name, experience_level,
                                                             description, owner_id, price)
-                         values (@name, @expirience_level, @description, @owner_id, @price)";
+                         values (@name, @experience_level, @description, @ownerId, @price)
+                         Returning *";
             
             using(var conn = _dataSource.OpenConnection())
             {
-               var parameters =  new {name = course.Name, expirience_level = course.ExpirienceLevel,
-                description = course.Descrpition, owner_id = course.OwnerId, price = course.Price};
+                var map = new CustomPropertyTypeMap(typeof(Course), (type, columnName) => 
+                    type.GetProperties().FirstOrDefault(prop =>
+                    GetDescriptionFromAttribute(prop) == columnName.ToLower()));
+                
+                Dapper.SqlMapper.SetTypeMap(typeof(Course), map);
+
+               var parameters =  new {name = name, experience_level = experience_level,
+                description = description, ownerId = ownerId, price = price};
                
                return conn.QueryFirst<Course>(sql, parameters);
             }
         }
-
-        public Course Update(int id, Course course)
+        public Course Update(int id, string name, int expirienceLevel,
+                             string description, int ownerId, decimal price)
         {
-            var sql = $@"update da_education.courses set name=@name, @expirience_level = expirience_level,
-            description = @description, owner_id = @owner_id, price = @price";
+            var sql = $@"update da_education.courses set name=@name, experience_level =@expirience_level,
+            description = @description, owner_id = @owner_id, price = @price where id=@id
+            returning *";
 
             using(var conn = _dataSource.OpenConnection())
             {
-                var parameters =  new {name = course.Name, expirience_level = course.ExpirienceLevel,
-                description = course.Descrpition, owner_id = course.OwnerId, price = course.Price, id};
+                var map = new CustomPropertyTypeMap(typeof(Course), (type, columnName) => 
+                    type.GetProperties().FirstOrDefault(prop =>
+                    GetDescriptionFromAttribute(prop) == columnName.ToLower()));
+                
+                Dapper.SqlMapper.SetTypeMap(typeof(Course), map);
 
-                conn.Execute(sql, parameters);
-                return course;
+                var parameters =  new {name = name, expirience_level = expirienceLevel,
+                description = description, owner_id = ownerId, price = price, id};
+
+                return conn.QueryFirst<Course>(sql, parameters);
             }
         }
         
