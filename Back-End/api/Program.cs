@@ -15,6 +15,9 @@ builder.Services.AddSingleton<UserService>();
 builder.Services.AddSingleton<CourseRepository>();
 builder.Services.AddSingleton<CourseService>();
 
+builder.Services.AddSingleton<AvatarImageRepository>();
+builder.Services.AddSingleton<AvatarImageService>();
+
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
