@@ -36,27 +36,27 @@ namespace Service
             }
         }
 
-        public Course Create(Course course)
+        public Course Create(string name, int expirienceLevel, string description, int ownerId, decimal price)
         {
             try
             {
-                return _repository.Create(course);
+                return _repository.Create(name, expirienceLevel, description, ownerId, price);
             }
             catch(Exception)
             {
-                throw new Exception("Could not create the particular course " + course);
+                throw new Exception("Could not create the particular course");
             }
         }
 
-        public Course Update(int id, Course course)
+        public Course Update(int id, string name, int expirienceLevel, string description, int ownerId, decimal price)
         {
             try
             {
-                return _repository.Update(id, course);
+                return _repository.Update(id, name, expirienceLevel, description, ownerId, price);
             }
             catch(Exception)
             {
-                throw new Exception("Could not update the particular course " + course);
+                throw new Exception("Could not update the particular course!");
             }
         }
         public void Delete(int id)

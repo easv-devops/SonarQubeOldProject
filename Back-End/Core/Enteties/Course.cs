@@ -16,9 +16,8 @@ namespace Core.Enteties
         [Required, NotNull]
         [Description("experience_level")]
         public int ExpirienceLevel { get; set; }
-        [Required, MinLength(50)]
         public CourseLevel CourseLevel { get; set; }
-        public string Descrpition { get; set; }
+        public string Description { get; set; }
         [Required, NotNull]
         [Description("owner_id")]
         public int OwnerId { get; set; }

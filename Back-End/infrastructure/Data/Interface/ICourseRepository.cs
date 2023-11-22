@@ -10,8 +10,8 @@ namespace infrastructure.Data.Interface
     {
         IEnumerable<Course> GetAll();
         Course GetById(int id);
-        Course Create(Course course);
-        Course Update(int id ,Course course);
+        Course Create(string name, int courseLevelId, string description, int ownerId, decimal price);
+        Course Update(int id , string name, int courseLevelId, string description, int ownerId, decimal price);
         void Delete(int id);   
     }
 }
