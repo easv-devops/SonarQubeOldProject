@@ -1,12 +1,11 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Core.Enteties
+namespace api.TransferModels.CourseLevelDto
 {
-    public class CourseLevel : BaseEntity
+    public class CreateCourseLevelDto
     {
         public string Level { get; set; }
     }

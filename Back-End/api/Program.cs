@@ -20,6 +20,10 @@ builder.Services.AddSingleton<CourseEnrollRepository>();
 builder.Services.AddSingleton<CourseEnrollService>();
 
 
+builder.Services.AddSingleton<CourseLevelService>();
+builder.Services.AddSingleton<CourseLevelRepository>();
+
+
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
