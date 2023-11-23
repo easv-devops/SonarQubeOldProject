@@ -12,5 +12,6 @@ namespace infrastructure.Data.Interface
         Resources GetById(int id);
         Resources Create(string name, string type, string link, int courseId);
         Resources Update(int id, string name, string type, string link, int courseId);
+        void Delete (int id);
     }
 }
