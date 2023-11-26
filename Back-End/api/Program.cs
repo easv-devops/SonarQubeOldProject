@@ -1,36 +1,13 @@
+using api.Extensions;
 using infrastructure;
 using infrastructure.Data.Repository;
 using Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddNpgsqlDataSource(Utilities.ProperlyFormattedConnectionString,
-dataSourceBuilder => dataSourceBuilder.EnableParameterLogging());
-
-builder.Services.AddSingleton<UserRepository>();
-builder.Services.AddSingleton<UserService>();
-
-builder.Services.AddSingleton<CourseRepository>();
-builder.Services.AddSingleton<CourseService>();
-
-builder.Services.AddSingleton<AvatarImageRepository>();
-builder.Services.AddSingleton<AvatarImageService>();
-
-builder.Services.AddSingleton<CourseEnrollRepository>();
-builder.Services.AddSingleton<CourseEnrollService>();
-
-
-builder.Services.AddSingleton<CourseLevelService>();
-builder.Services.AddSingleton<CourseLevelRepository>();
-
-builder.Services.AddSingleton<ResourcesService>();
-builder.Services.AddSingleton<ResourcesRepository>();
-
-
+// Add services to the container.
 builder.Services.AddControllers();
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
+builder.Services.AddApplicationServices(builder.Configuration);
 
 /*
 var frontEndRelativePath = "../../../Fromt-end/my-app/www";
@@ -78,6 +55,7 @@ app.UseCors(options =>
         .AllowAnyHeader()
         .AllowCredentials();
 });
+
 //app.UseSpaStaticFiles();
 
 //app.UseSpa(conf => { conf.Options.SourcePath = frontEndRelativePath; });
