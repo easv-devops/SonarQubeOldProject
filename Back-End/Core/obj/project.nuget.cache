@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "LfsKecPRahPLL+EngPhwcfV/dbIqETb0w1fhH5HywRnsmJugBjo+8cBxjNTvGUlRLKssqIjVe0FSWx9ESO7WZQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Atanas Stoyanov\\OneDrive - Erhvervsakademi Sydvest\\Dokumenter\\GitHub\\DA_Education_WebApp\\Back-End\\Core\\Core.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Atanas Stoyanov\\.nuget\\packages\\dapper\\2.1.21\\dapper.2.1.21.nupkg.sha512"
+  ],
+  "logs": []
+}
