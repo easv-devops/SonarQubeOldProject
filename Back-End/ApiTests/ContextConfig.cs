@@ -19,7 +19,7 @@ namespace ApiTests
             var rawConnectionString = Environment.GetEnvironmentVariable(envVarKeyName);
             if (string.IsNullOrEmpty(rawConnectionString))
             {
-                throw new Exception("Environment variable 'pgconn' is not set.");
+                throw new Exception("Environment variable 'pgconn' is not set. Write this in your powershell terminal: ' $env:pgconn='pgconn'");
             }
 
             try
