@@ -126,9 +126,9 @@ namespace ApiTests
                         }
 
                         response.IsSuccessStatusCode.Should().BeTrue("DELETE request should return 204 No Content on success.");
-            }
+                    }       
             
-    }
+                }
     }
 }
 }
