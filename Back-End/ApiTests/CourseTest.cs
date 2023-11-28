@@ -123,5 +123,38 @@ namespace ApiTests
             }
 
         }
+
+        [Test]
+        public async Task DeleteCourseByIdTest()
+        {
+            //Arrange
+            using (var conn = await ContextConfig.DataSource.OpenConnectionAsync())
+            {
+                var insertedCourse = conn.QueryFirst<Course>($@"Select * from da_education.courses where name='CourseForTest';");
+
+                int courseToDeleteId = insertedCourse.Id;
+
+                 
+                    using (HttpClient client = new HttpClient())
+                    {
+
+                        HttpResponseMessage response =
+                            await client.DeleteAsync($"{ContextConfig.ApiBaseUrl}/Course/{courseToDeleteId}");
+
+                        if (response.IsSuccessStatusCode)
+                        {
+                            Console.WriteLine($"DELETE request for User ID {courseToDeleteId} was successful.");
+                        }
+                        else
+                        {
+                            Console.WriteLine($"DELETE request failed with status code: {response.StatusCode}");
+                            string responseContent = await response.Content.ReadAsStringAsync();
+                            Console.WriteLine($"Response content: {responseContent}");
+                        }
+
+                        response.IsSuccessStatusCode.Should().BeTrue("DELETE request should return 204 No Content on success.");
+                    }       
+            }
+        }
     }
 }
