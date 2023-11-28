@@ -83,7 +83,8 @@ namespace ApiTests
                 {
                     var userFromDatabase = conn.QueryFirst<User>("Select * from da_education.users where username='ForTest';");
 
-                    userFromDatabase.Should().NotBeNull(); // Check if userFromDatabase is not null
+                    // Check if userFromDatabase is not null
+                    userFromDatabase.Should().NotBeNull(); 
 
                     
                     userFromDatabase.Username.Should().Be("ForTest", "because the Username should match");
