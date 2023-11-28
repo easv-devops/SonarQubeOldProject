@@ -11,7 +11,7 @@ namespace Core.Enteties
         public string Name { get; set; }   
         [Required, NotNull]
         [Description("experience_level")]
-        public int ExpirienceLevel { get; set; }
+        public int ExperienceLevel { get; set; }
         public CourseLevel CourseLevel { get; set; }
         public string Description { get; set; }
         [Required, NotNull]
