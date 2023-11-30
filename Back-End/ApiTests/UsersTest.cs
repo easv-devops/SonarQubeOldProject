@@ -22,7 +22,7 @@ namespace ApiTests
 
                 // Deserialize the response using the wrapper class
                 var apiResponse = JsonConvert.DeserializeObject<ApiResponse<User>>(responseContent);
-
+                
                 // Retrieve the users from the database
                 IEnumerable<User> usersFromDatabase;
                 await using (var conn = await ContextConfig.DataSource.OpenConnectionAsync())
@@ -100,7 +100,7 @@ namespace ApiTests
             {
                  using (var conn = await ContextConfig.DataSource.OpenConnectionAsync())
                 {
-                    var insertedUser = conn.QueryFirstOrDefault<User>(
+                    var insertedUser = conn.QueryFirst<User>(
                     "Select * from da_education.users where username='ForTest';");
 
             

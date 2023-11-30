@@ -8,12 +8,12 @@ namespace Core.Enteties
 {
     public class Resources : BaseEntity
     {
-        public string Name { get; set; }
-        public string Type { get; set; }
-        public string Link { get; set; }
+        public string? Name { get; set; }
+        public string? Type { get; set; }
+        public string? Link { get; set; }
         [Description ("course_id")]
         public int CourseId { get; set; }
-        public Course Course { get; set; }
+        public Course? Course { get; set; }
 
         
 

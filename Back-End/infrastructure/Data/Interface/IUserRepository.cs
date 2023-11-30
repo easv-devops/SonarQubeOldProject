@@ -10,8 +10,8 @@ namespace infrastructure.Data.Interface
     {
         IEnumerable<User> GetAll();
         User GetById(int id);
-        User Create(User user);
-        User Update(int id ,User user);
+        User Create(string username, string email, string password, string shortDescription);
+        User Update(int id, string username, string email, string password, string shortDescription);
         void Delete(int id);
     }
 }
