@@ -33,7 +33,7 @@ namespace ApiTests
             }
 
             // Assert
-            apiResponse.ResponseData.Should()
+            apiResponse?.ResponseData.Should()
                 .NotBeNull("because courses should be returned from the API")
                 .And.BeEquivalentTo(coursesFromDatabase, options => options.ExcludingMissingMembers());
         }

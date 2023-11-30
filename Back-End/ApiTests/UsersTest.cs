@@ -31,7 +31,7 @@ namespace ApiTests
 
     
                 // Assert
-                apiResponse.ResponseData.Should()
+                apiResponse?.ResponseData.Should()
                     .NotBeNull("because users should be returned from the API")
                     .And.BeEquivalentTo(usersFromDatabase, options => options.ExcludingMissingMembers());
             }
