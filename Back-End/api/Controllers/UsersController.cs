@@ -1,6 +1,5 @@
 using api.TransferModels;
 using api.TransferModels.UserDto;
-using Core.Enteties;
 using Microsoft.AspNetCore.Mvc;
 using Service;
 

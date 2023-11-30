@@ -1,5 +1,4 @@
 using api.TransferModels;
-using api.TransferModels.CourseDto;
 using api.TransferModels.CourseEnrollDto;
 using Microsoft.AspNetCore.Mvc;
 using Service;

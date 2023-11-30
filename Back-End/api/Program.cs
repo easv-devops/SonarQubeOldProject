@@ -1,8 +1,5 @@
 using api.Extensions;
 using api.Middleware;
-using infrastructure;
-using infrastructure.Data.Repository;
-using Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
