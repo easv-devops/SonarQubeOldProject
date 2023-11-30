@@ -21,7 +21,6 @@ namespace ApiTests
 
              // Act
             var responseContent = await httpResponse.Content.ReadAsStringAsync();
-            Console.WriteLine($"Response Content: {responseContent}");
 
             // Deserialize the response using the wrapper class
             var apiResponse = JsonConvert.DeserializeObject<ApiResponse<User>>(responseContent);
@@ -32,8 +31,6 @@ namespace ApiTests
             {
                     coursesFromDatabase = conn.Query<Course>("SELECT * FROM da_education.courses;");
             }
-
-            Console.WriteLine($"courses from Database: {JsonConvert.SerializeObject(coursesFromDatabase)}");
 
             // Assert
             apiResponse.ResponseData.Should()

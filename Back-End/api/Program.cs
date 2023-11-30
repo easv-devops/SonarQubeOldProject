@@ -1,4 +1,5 @@
 using api.Extensions;
+using api.Middleware;
 using infrastructure;
 using infrastructure.Data.Repository;
 using Service;
@@ -20,10 +21,13 @@ var app = builder.Build();
 
 app.UseSwagger();
 app.UseSwaggerUI();
+
 app.MapControllers();
-//app.UseMiddleware<GlobalExceptionHandler>();
+app.UseMiddleware<GlobalExceptionHandler>();
 
 app.UseCors(c => c.AllowAnyHeader().AllowAnyOrigin().AllowAnyMethod());
+
+
 /*
 app.UseSpaStaticFiles(new StaticFileOptions()
  {
@@ -59,6 +63,6 @@ app.UseCors(options =>
 //app.UseSpaStaticFiles();
 
 //app.UseSpa(conf => { conf.Options.SourcePath = frontEndRelativePath; });
-app.MapControllers();
 
+app.MapControllers();
 app.Run();
