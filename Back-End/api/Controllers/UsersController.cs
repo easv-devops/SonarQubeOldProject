@@ -1,4 +1,5 @@
 using api.TransferModels;
+using api.TransferModels.UserDto;
 using Core.Enteties;
 using Microsoft.AspNetCore.Mvc;
 using Service;
@@ -36,22 +37,22 @@ namespace api.Controllers
         }
         
         [HttpPost]
-        public ResponseDto CreateUser([FromBody] User user)
+        public ResponseDto CreateUser([FromBody] CreateUserDto dto)
         {
             return new ResponseDto()
             {
-                MessageToClient = "Here is the created user: " + user,
-                ResponseData = _userService.CreateUser(user)
+                MessageToClient = "Here is the created user: " + dto,
+                ResponseData = _userService.CreateUser(dto.Username, dto.Email, dto.Password, dto.ShortDescription)
             };
         }
 
         [HttpPut("{id}")]
-        public ResponseDto UpdateUser([FromRoute] int id,[FromBody]User user)
+        public ResponseDto UpdateUser([FromRoute] int id,[FromBody] UpdateUserDto dto)
         {
             return new ResponseDto()
             {
-                MessageToClient = "Here is the updated user: " + user,
-                ResponseData = _userService.UpdateUser(id ,user)
+                MessageToClient = "Here is the updated user: " + dto,
+                ResponseData = _userService.UpdateUser(id, dto.Username, dto.Email, dto.Password, dto.ShortDescription) 
             };
         }
 
