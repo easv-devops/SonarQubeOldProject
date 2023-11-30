@@ -33,45 +33,39 @@ namespace infrastructure.Data.Repository
             }
         }
 
-        public User Create(User user)
+        public User Create(string username, string email, string password, string shortDescription)
         {
             var sql = $@"insert into da_education.users (username, email, password, shortdescription)
-                        values (@username, @email, @password, @shortdescription)
+                        values (@username, @email, @password, @shortDescription)
                         RETURNING *";
 
             using (var conn = _dataSource.OpenConnection())
             {
-                var parameters = new {username = user.Username, email = user.Email,
-                                      password = user.Password, shortdescription = user.ShortDescription};
+                var parameters = new {username = username, email = email,
+                                      password = password, shortDescription = shortDescription};
                 
                 return conn.QueryFirst<User>(sql, parameters);
             }
         }
-
-        public void Delete(int id)
-        {  
-            var sql = $@"delete from da_education.users where id=@id";
-            using(var conn = _dataSource.OpenConnection())
-            {
-                conn.Execute(sql, new {id});
-            }
-        }
-
-        public User Update(int id, User user)
+        public User Update(int id, string username, string email, string password, string shortDescription)
         {
             var sql = $@"update da_education.users set username = @username, email = @email,
                         password = @password, shortdescription = @shortdescription where id=@id";
 
             using(var conn = _dataSource.OpenConnection())
             {
-                var parameters = new {username = user.Username, email = user.Email, password = user.Password,
-                shortdescription = user.ShortDescription, id};
+                var parameters = new {username = username, email = email, password = password,
+                shortdescription = shortDescription, id};
                 
-                // Continue with the update
-                conn.Execute(sql, parameters);
-
-                // Optionally, you can return the updated user here
-                return user;
+                return conn.QueryFirst<User>(sql, parameters);
+            }
+        }
+        public void Delete(int id)
+        {  
+            var sql = $@"delete from da_education.users where id=@id";
+            using(var conn = _dataSource.OpenConnection())
+            {
+                conn.Execute(sql, new {id});
             }
         }
     }

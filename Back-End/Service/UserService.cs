@@ -37,23 +37,23 @@ namespace Service
             }
         }
 
-        public User CreateUser(User user)
+        public User CreateUser(string username, string email, string password, string shortDescription)
         {
             try
             {
-                return _repository.Create(user);
+                return _repository.Create(username, email, password, shortDescription);
             }
             catch(Exception)
             {
-                throw new Exception("Could not create this user " + user);
+                throw new Exception("Could not create this user!");
             }
         }
 
-        public User UpdateUser(int id, User user)
+        public User UpdateUser(int id, string username, string email, string password, string shortDescription)
         {
             try
             {
-               return _repository.Update(id, user);
+               return _repository.Update(id, username, email, password, shortDescription);
             }
             catch(Exception ex)
             {

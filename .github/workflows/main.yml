@@ -16,7 +16,7 @@ jobs:
           dotnet-version: '8'
           
       - name: Build test code and install playwright test browser
-        run: cd ./Back-End/ApiTest  && dotnet build && pwsh bin/Debug/net8.0/playwright.ps1 install --with-deps
+        run: cd ./Back-End/ApiTests  && dotnet build && pwsh bin/Debug/net8.0/playwright.ps1 install --with-deps
 
       - name: Build and run Web API + getting process ID for shutting down later
         run: cd ./Back-End/api && dotnet run & echo "API_PID=$!" >> $GITHUB_ENV
@@ -24,7 +24,7 @@ jobs:
           pgconn: ${{secrets.PGCONN}}
 
       - name: Run tests once API is running (sleep interval set to 60 seconds)
-        run: cd ./Back-End/ApiTest && sleep 60 && dotnet test
+        run: cd ./Back-End/ApiTests && sleep 60 && dotnet test
         env:
           pgconn: ${{secrets.PGCONN}}
           

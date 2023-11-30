@@ -22,7 +22,7 @@ namespace ApiTests
 
                 // Deserialize the response using the wrapper class
                 var apiResponse = JsonConvert.DeserializeObject<ApiResponse<User>>(responseContent);
-
+                
                 // Retrieve the users from the database
                 IEnumerable<User> usersFromDatabase;
                 await using (var conn = await ContextConfig.DataSource.OpenConnectionAsync())
@@ -71,7 +71,7 @@ namespace ApiTests
                     Username = "ForTest",
                     Email = "emailForTest@mail.com",
                     Password = "passwordForTest",
-                    ShortDescription = "forTest"
+                    ShortDescription = "Short description forTest"
                 };
 
                 // Act
@@ -90,7 +90,7 @@ namespace ApiTests
                     userFromDatabase.Username.Should().Be("ForTest", "because the Username should match");
                     userFromDatabase.Email.Should().Be("emailForTest@mail.com", "because the Email should match");
                     userFromDatabase.Password.Should().NotBeNullOrEmpty(); // Password may be hashed or processed
-                    userFromDatabase.ShortDescription.Should().Be("forTest", "because the ShortDescription should match");
+                    userFromDatabase.ShortDescription.Should().Be("Short description forTest", "because the ShortDescription should match");
                     
                 }
             }
@@ -100,7 +100,7 @@ namespace ApiTests
             {
                  using (var conn = await ContextConfig.DataSource.OpenConnectionAsync())
                 {
-                    var insertedUser = conn.QueryFirstOrDefault<User>(
+                    var insertedUser = conn.QueryFirst<User>(
                     "Select * from da_education.users where username='ForTest';");
 
             

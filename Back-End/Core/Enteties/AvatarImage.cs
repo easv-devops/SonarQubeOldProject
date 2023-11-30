@@ -6,9 +6,9 @@ namespace Core.Enteties
     {
         [Description("user_id")]
         public int UserId { get; set; }
-        public User User { get; set; }
+        public User? User { get; set; }
 
         [Description ("picture_url")]
-        public string PictureUrl { get; set; }
+        public string? PictureUrl { get; set; }
     }
 }

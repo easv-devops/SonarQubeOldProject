@@ -8,6 +8,6 @@ namespace Core.Enteties
 {
     public class CourseLevel : BaseEntity
     {
-        public string Level { get; set; }
+        public string? Level { get; set; }
     }
 }
