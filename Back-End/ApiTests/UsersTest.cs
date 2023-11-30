@@ -18,7 +18,6 @@ namespace ApiTests
 
                 // Act
                 var responseContent = await httpResponse.Content.ReadAsStringAsync();
-                Console.WriteLine($"Response Content: {responseContent}");
 
                 // Deserialize the response using the wrapper class
                 var apiResponse = JsonConvert.DeserializeObject<ApiResponse<User>>(responseContent);
@@ -30,10 +29,9 @@ namespace ApiTests
                     usersFromDatabase = conn.Query<User>("SELECT * FROM da_education.users;");
                 }
 
-                Console.WriteLine($"Users from Database: {JsonConvert.SerializeObject(usersFromDatabase)}");
-
+    
                 // Assert
-                apiResponse.ResponseData.Should()
+                apiResponse?.ResponseData.Should()
                     .NotBeNull("because users should be returned from the API")
                     .And.BeEquivalentTo(usersFromDatabase, options => options.ExcludingMissingMembers());
             }
@@ -105,8 +103,6 @@ namespace ApiTests
 
             
                     int UserIdToDelete = insertedUser.Id;
-
-                    Console.WriteLine(UserIdToDelete);
                     
                     using (HttpClient client = new HttpClient())
                     {

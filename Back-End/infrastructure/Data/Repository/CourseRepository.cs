@@ -3,6 +3,7 @@ using System.Reflection;
 using Core.Enteties;
 using Dapper;
 using infrastructure.Data.Interface;
+using infrastructure.Helpers;
 using Npgsql;
 
 namespace infrastructure.Data.Repository
@@ -114,13 +115,9 @@ namespace infrastructure.Data.Repository
             }
         }
 
-
-        static string GetDescriptionFromAttribute(MemberInfo member)
+        private static string GetDescriptionFromAttribute(MemberInfo member)
         {
-            if (member == null) return null;
-
-            var attrib = (DescriptionAttribute)Attribute.GetCustomAttribute(member, typeof(DescriptionAttribute), false);
-            return (attrib?.Description ?? member.Name).ToLower();
+            return AttributeHelper.GetDescriptionFromAttribute(member);
         }
     }
 }

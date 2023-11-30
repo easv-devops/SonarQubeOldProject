@@ -1,6 +1,5 @@
 using api.TransferModels;
 using api.TransferModels.CourseDto;
-using Core.Enteties;
 using Microsoft.AspNetCore.Mvc;
 using Service;
 
