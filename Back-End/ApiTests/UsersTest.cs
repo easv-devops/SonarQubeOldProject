@@ -71,7 +71,7 @@ namespace ApiTests
                     Username = "ForTest",
                     Email = "emailForTest@mail.com",
                     Password = "passwordForTest",
-                    ShortDescription = "forTest"
+                    ShortDescription = "Short description forTest"
                 };
 
                 // Act
@@ -90,7 +90,7 @@ namespace ApiTests
                     userFromDatabase.Username.Should().Be("ForTest", "because the Username should match");
                     userFromDatabase.Email.Should().Be("emailForTest@mail.com", "because the Email should match");
                     userFromDatabase.Password.Should().NotBeNullOrEmpty(); // Password may be hashed or processed
-                    userFromDatabase.ShortDescription.Should().Be("forTest", "because the ShortDescription should match");
+                    userFromDatabase.ShortDescription.Should().Be("Short description forTest", "because the ShortDescription should match");
                     
                 }
             }
