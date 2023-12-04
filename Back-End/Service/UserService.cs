@@ -85,7 +85,7 @@ namespace Service
             var user = _repository.GetById(1);
 
             if (user == null)
-            return null;
+            return null!;
 
             //generate token
             user.Token = _authenticationService.GenerateJwtToken(user);
