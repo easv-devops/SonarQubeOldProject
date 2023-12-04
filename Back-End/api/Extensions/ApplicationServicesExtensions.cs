@@ -1,10 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Service;
 using infrastructure;
 using infrastructure.Data.Repository;
-using Service;
 
 namespace api.Extensions
 {
@@ -17,7 +13,8 @@ namespace api.Extensions
                 dataSourceBuilder => dataSourceBuilder.EnableParameterLogging());
 
                 services.AddSingleton<UserRepository>();
-                services.AddSingleton<UserService>();
+                services.AddScoped<AuthenticationService>();
+                services.AddScoped<UserService>();
 
                 services.AddSingleton<CourseRepository>();
                 services.AddSingleton<CourseService>();

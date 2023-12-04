@@ -32,6 +32,15 @@ namespace infrastructure.Data.Repository
                 return conn.QueryFirst<User>(sql, new {id});
             }
         }
+        public User GetByUsernameAndPassword(string username, string hashedPassword)
+        {
+            var sql = $@"select * from da_education.users where username=@username and password=@password;";
+
+            using(var conn = _dataSource.OpenConnection())
+            {
+                return conn.QueryFirst<User>(sql, new {username, password = hashedPassword});
+            }
+        }
 
         public User Create(string username, string email, string password, string shortDescription)
         {
@@ -68,5 +77,7 @@ namespace infrastructure.Data.Repository
                 conn.Execute(sql, new {id});
             }
         }
+
+        
     }
 }

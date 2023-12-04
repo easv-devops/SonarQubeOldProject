@@ -10,6 +10,8 @@ namespace infrastructure.Data.Interface
     {
         IEnumerable<User> GetAll();
         User GetById(int id);
+        User GetByUsernameAndPassword(string username, string hashedPassword);
+
         User Create(string username, string email, string password, string shortDescription);
         User Update(int id, string username, string email, string password, string shortDescription);
         void Delete(int id);
