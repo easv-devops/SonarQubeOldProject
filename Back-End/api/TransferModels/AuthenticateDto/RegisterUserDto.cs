@@ -1,12 +1,15 @@
-namespace Core.Enteties
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace api.TransferModels.AuthenticateDto
 {
-    public class User : BaseEntity
+    public class RegisterUserDto
     {
         public string? Username { get; set; }
         public string? Email { get; set; }
         public string? Password { get; set; }
-        
         public string? ShortDescription { get; set; }
-        public string? Token { get; set; } 
     }
 }

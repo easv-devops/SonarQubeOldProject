@@ -13,7 +13,8 @@ namespace api.Extensions
                 dataSourceBuilder => dataSourceBuilder.EnableParameterLogging());
 
                 services.AddSingleton<UserRepository>();
-                services.AddSingleton<UserService>();
+                services.AddScoped<AuthenticationService>();
+                services.AddScoped<UserService>();
 
                 services.AddSingleton<CourseRepository>();
                 services.AddSingleton<CourseService>();
