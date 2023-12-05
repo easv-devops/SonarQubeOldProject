@@ -140,7 +140,7 @@ namespace ApiTests
 
                         if (response.IsSuccessStatusCode)
                         {
-                            Console.WriteLine($"DELETE request for User ID {courseToDeleteId} was successful.");
+                            Console.WriteLine($"DELETE request for Course ID {courseToDeleteId} was successful.");
                         }
                         else
                         {

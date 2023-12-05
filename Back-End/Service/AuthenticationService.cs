@@ -28,13 +28,13 @@ namespace Service
                 }
 
                 var tokenHandler = new JwtSecurityTokenHandler();
-                var key = Encoding.ASCII.GetBytes(_configuration["Jwt:Secret"]);
+                var key = Encoding.ASCII.GetBytes(_configuration["Jwt:Secret"]!);
 
                 var claims = new List<Claim>
                 {
                     new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
                     new Claim(ClaimTypes.Name, user.Username),
-                    new Claim(ClaimTypes.Email, user.Email)
+                    new Claim(ClaimTypes.Email, user.Email!)
                 };
 
                 var tokenDescriptor = new SecurityTokenDescriptor
