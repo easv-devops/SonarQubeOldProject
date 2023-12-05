@@ -34,11 +34,15 @@ export class BackendService {
     });
   }
 
-  createUser(name: string): Observable<any> {
-    const url = environment.backendapi + '/api/User';
+  createUser(name: string,username: string, email: string, password: string): Observable<any> {
+    const url = environment.backendapi + '/api/Users';
     return this.http.post<any>(url, {
-      BoxName: name,
-    });
+      'id': 0,
+      'username': username,
+      'email': email,
+      'password': password,
+      'shortDescription': name
+        });
   }
 
 
@@ -51,7 +55,7 @@ export class BackendService {
     return this.http.get<any[]>(url);
   }
 
-  gatCourseById(id: number): Observable<any> {
+  gatCourseById(id: Number): Observable<any> {
     const url = environment.backendapi + '/api/Course/' + id;
     return this.http.get<any>(url);
   }
@@ -69,7 +73,7 @@ export class BackendService {
     });
   }
 
-  createCourse(name: string): Observable<any> {
+  createCourse(name: string, description: string, videoUrl:string): Observable<any> {
     const url = environment.backendapi + '/api/Course';
     return this.http.post<any>(url, {
       BoxName: name,

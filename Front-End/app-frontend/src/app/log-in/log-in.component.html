@@ -1,13 +1,12 @@
-<div class="logo">
-  <img src="" alt="" class="logo-img">
-</div>
+<div class="container">
+  <div class="logo">
+    <img src="" alt="" class="logo-img" />
+  </div>
 
-<div class="form-container">
+  <div class="form-container">
+      <input type="text" placeholder="Username"  [(ngModel)]="username"/>
+      <input type="password" placeholder="Password"[(ngModel)]="password"/>
 
-  <form action="">
-    <input type="text">
-    <input type="password">
-  </form>
-
-  <button type="submit"></button>
+    <button (click)="logIn()" >Log In</button>
+  </div>
 </div>

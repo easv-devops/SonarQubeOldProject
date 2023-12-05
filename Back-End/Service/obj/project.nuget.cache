@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "7e2I98pVUA0N6pQ2DtZED/pwxoCoXfU77S+97vgUF3c3qfwPqVwRJrBlBSTemj6egByAaOVZxZDh25/4uLPszw==",
+  "dgSpecHash": "WQTgUwo68kJS/MM4YH0W//PWffTyb21EA5+Di1xP2+zWWKX38Kq36n8tYmd9n5hYDKVmhhrQOUiGwi8aSe6Pzg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Atanas Stoyanov\\OneDrive - Erhvervsakademi Sydvest\\Dokumenter\\GitHub\\DA_Education_WebApp\\Back-End\\Service\\Service.csproj",
+  "projectFilePath": "/Users/dimitar/Desktop/DA_Education_WebApp/Back-End/Service/Service.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Atanas Stoyanov\\.nuget\\packages\\dapper\\2.1.21\\dapper.2.1.21.nupkg.sha512",
-    "C:\\Users\\Atanas Stoyanov\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\6.0.0\\microsoft.extensions.logging.abstractions.6.0.0.nupkg.sha512",
-    "C:\\Users\\Atanas Stoyanov\\.nuget\\packages\\npgsql\\7.0.6\\npgsql.7.0.6.nupkg.sha512"
+    "/Users/dimitar/.nuget/packages/dapper/2.1.21/dapper.2.1.21.nupkg.sha512",
+    "/Users/dimitar/.nuget/packages/microsoft.extensions.logging.abstractions/6.0.0/microsoft.extensions.logging.abstractions.6.0.0.nupkg.sha512",
+    "/Users/dimitar/.nuget/packages/npgsql/7.0.6/npgsql.7.0.6.nupkg.sha512"
   ],
   "logs": []
 }

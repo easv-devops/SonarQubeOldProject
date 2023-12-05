@@ -743,19 +743,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Atanas Stoyanov\\.nuget\\packages\\": {}
+    "/Users/dimitar/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Atanas Stoyanov\\OneDrive - Erhvervsakademi Sydvest\\Dokumenter\\GitHub\\DA_Education_WebApp\\Back-End\\api\\api.csproj",
+      "projectUniqueName": "/Users/dimitar/Desktop/DA_Education_WebApp/Back-End/api/api.csproj",
       "projectName": "api",
-      "projectPath": "C:\\Users\\Atanas Stoyanov\\OneDrive - Erhvervsakademi Sydvest\\Dokumenter\\GitHub\\DA_Education_WebApp\\Back-End\\api\\api.csproj",
-      "packagesPath": "C:\\Users\\Atanas Stoyanov\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Atanas Stoyanov\\OneDrive - Erhvervsakademi Sydvest\\Dokumenter\\GitHub\\DA_Education_WebApp\\Back-End\\api\\obj\\",
+      "projectPath": "/Users/dimitar/Desktop/DA_Education_WebApp/Back-End/api/api.csproj",
+      "packagesPath": "/Users/dimitar/.nuget/packages/",
+      "outputPath": "/Users/dimitar/Desktop/DA_Education_WebApp/Back-End/api/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Atanas Stoyanov\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "/Users/dimitar/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -767,11 +767,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\Atanas Stoyanov\\OneDrive - Erhvervsakademi Sydvest\\Dokumenter\\GitHub\\DA_Education_WebApp\\Back-End\\infrastructure\\infrastructure.csproj": {
-              "projectPath": "C:\\Users\\Atanas Stoyanov\\OneDrive - Erhvervsakademi Sydvest\\Dokumenter\\GitHub\\DA_Education_WebApp\\Back-End\\infrastructure\\infrastructure.csproj"
+            "/Users/dimitar/Desktop/DA_Education_WebApp/Back-End/infrastructure/infrastructure.csproj": {
+              "projectPath": "/Users/dimitar/Desktop/DA_Education_WebApp/Back-End/infrastructure/infrastructure.csproj"
             },
-            "C:\\Users\\Atanas Stoyanov\\OneDrive - Erhvervsakademi Sydvest\\Dokumenter\\GitHub\\DA_Education_WebApp\\Back-End\\Service\\Service.csproj": {
-              "projectPath": "C:\\Users\\Atanas Stoyanov\\OneDrive - Erhvervsakademi Sydvest\\Dokumenter\\GitHub\\DA_Education_WebApp\\Back-End\\Service\\Service.csproj"
+            "/Users/dimitar/Desktop/DA_Education_WebApp/Back-End/Service/Service.csproj": {
+              "projectPath": "/Users/dimitar/Desktop/DA_Education_WebApp/Back-End/Service/Service.csproj"
             }
           }
         }
@@ -822,7 +822,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100-rc.2.23502.2/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.100/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
