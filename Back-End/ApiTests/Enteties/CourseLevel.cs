@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace ApiTests.Enteties
 {
-    public class CourseLevel
+    public class CourseLevel : BaseEntity
     {
          public string? Level { get; set; }
     }
