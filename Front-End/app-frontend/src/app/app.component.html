@@ -1,0 +1,36 @@
+<div class="header">
+  <div class="logo" routerLink="home">
+    <img
+      src="../assets/377238784_897993558379073_8072818336275597590_n.jpeg"
+      alt="Logo"
+      class="logo-img"
+    />
+  </div>
+
+  <div class="searchbar">
+    <input type="text" placeholder="Search" />
+  </div>
+
+  <div class="button-holder">
+    <div class="log-in" *ngIf="!loggedIn">Log in</div>
+    <div class="sign-up" *ngIf="!loggedIn">Sign up</div>
+    <div class="my-courses" *ngIf="loggedIn" routerLink="my-courses" >My courses</div>
+    <div class="profile" *ngIf="loggedIn">
+      <svg
+        width="51"
+        height="51"
+        viewBox="0 0 51 51"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M25.27 0C18.3207 0 12.635 7.0756 12.635 15.7938C12.635 24.5119 18.3207 31.5875 25.27 31.5875C32.2192 31.5875 37.905 24.5119 37.905 15.7938C37.905 7.0756 32.2192 0 25.27 0ZM12.0664 31.5875C5.36988 31.9034 0 37.3996 0 44.2225V50.54H50.54V44.2225C50.54 37.3996 45.2333 31.9034 38.4736 31.5875C35.0621 35.4412 30.3872 37.905 25.27 37.905C20.1528 37.905 15.4779 35.4412 12.0664 31.5875Z"
+          fill="black"
+        />
+      </svg>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>
+
+

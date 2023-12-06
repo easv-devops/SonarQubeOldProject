@@ -1,0 +1,29 @@
+<p class="course-title">{{course.name}}</p>
+
+<div class="descriprion">
+  <p class="subtitle">Course description</p>
+  <p class="description-text">
+   {{course.description}}
+  </p>
+</div>
+
+<div class="holder">
+<div class="start-course-button" *ngIf="!enrolled" (click)="startCourse()">Start course</div>
+</div>
+
+<div class="video" *ngIf="enrolled">
+  <p class="video-title" *ngIf="enrolled">Video</p>
+
+  <div class="holder" >
+  <div class="video-box">
+    <iframe  src="https://www.youtube.com/embed/kUMe1FH4CHE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+  </div>
+  </div>
+
+  <div class="holder" *ngIf="owner">
+  <div class="add-URL-button">
+    <input type="text" placeholder="Video URL" class="video-URL">
+  </div>
+  </div>
+</div>

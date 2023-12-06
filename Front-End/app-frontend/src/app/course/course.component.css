@@ -1,0 +1,117 @@
+.course-title {
+  color: #000;
+
+  font-family: Inter;
+  font-size: 60px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  padding-left: 33px;
+}
+
+.subtitle {
+  color: #000;
+
+  font-family: Inter;
+  font-size: 50px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding-left: 33px;
+}
+
+.description-text {
+  width: 1084px;
+  color: #000;
+
+  font-family: Inter;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  padding-left: 35px;
+}
+
+.start-course-button {
+  width: 486px;
+  height: 190px;
+  flex-shrink: 0;
+  border-radius: 40px;
+  background: #ffc436;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+
+  font-family: Inter;
+  font-size: 60px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.video-title {
+  color: #000;
+
+  font-family: Inter;
+  font-size: 50px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-left: 30px;
+}
+
+.video-box {
+  width: 1226px;
+  height: 705px;
+  flex-shrink: 0;
+  background: rgba(0, 0, 0, 0.81);
+  align-self: center;
+}
+
+iframe{
+  width: 1226px;
+  height: 705px;
+}
+
+.add-URL-button {
+  width: 935px;
+  height: 71px;
+  flex-shrink: 0;
+  border-radius: 26px;
+  border: 1px solid #000;
+
+  background: #0174be;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+
+  font-family: Inter;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.holder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+}
+
+.video-URL {
+  height: 71px;
+  border: none;
+  background: transparent;
+  color: #fff;
+  border: #0174be;
+}
+
+.video-URL::placeholder {
+  text-align: center;
+  color: #fff;
+}

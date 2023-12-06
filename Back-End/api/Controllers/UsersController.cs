@@ -7,11 +7,11 @@ namespace api.Controllers
 {
     public class UsersController : BaseApiController
     {
-        private readonly UserService _userService;
+        private readonly UserService _service;
 
-        public UsersController (UserService userService)
+        public UsersController (UserService service)
         {
-            _userService = userService;
+            _service = service;
         }
 
         [HttpGet]
@@ -21,7 +21,7 @@ namespace api.Controllers
             return new ResponseDto()
             {
                 MessageToClient = "Here are all the users!",
-                ResponseData = _userService.GetUsers()
+                ResponseData = _service.GetUsers()
             };
         }
 
@@ -31,7 +31,7 @@ namespace api.Controllers
             return new ResponseDto()
             {
                 MessageToClient = "Here is the wanted user with id = " + id,
-                ResponseData = _userService.GetUserById(id)
+                ResponseData = _service.GetUserById(id)
             };
         }
         
@@ -41,7 +41,7 @@ namespace api.Controllers
             return new ResponseDto()
             {
                 MessageToClient = "Here is the created user: " + dto,
-                ResponseData = _userService.CreateUser(dto.Username, dto.Email, dto.Password, dto.ShortDescription)
+                ResponseData = _service.CreateUser(dto.Username, dto.Email, dto.Password, dto.ShortDescription)
             };
         }
 
@@ -51,14 +51,14 @@ namespace api.Controllers
             return new ResponseDto()
             {
                 MessageToClient = "Here is the updated user: " + dto,
-                ResponseData = _userService.UpdateUser(id, dto.Username, dto.Email, dto.Password, dto.ShortDescription) 
+                ResponseData = _service.UpdateUser(id, dto.Username, dto.Email, dto.Password, dto.ShortDescription) 
             };
         }
 
         [HttpDelete("{id}")]
         public ResponseDto DeleteUser([FromRoute] int id)
         {   
-            _userService.DeleteUser(id);
+            _service.DeleteUser(id);
             
             return new ResponseDto()
             {
