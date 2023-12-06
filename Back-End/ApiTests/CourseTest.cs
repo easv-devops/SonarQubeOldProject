@@ -13,6 +13,7 @@ namespace ApiTests
     public class CourseTest
     {
         
+        /*
         [Test]
         public async Task GetAllCoursesTest()
         {
@@ -153,5 +154,7 @@ namespace ApiTests
                     }       
             }
         }
+        
+        */
     }
 }

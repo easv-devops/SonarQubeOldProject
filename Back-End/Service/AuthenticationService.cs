@@ -42,7 +42,7 @@ namespace Service
                     Subject = new ClaimsIdentity(claims),
                     Expires = DateTime.UtcNow.AddHours(5),
                     SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature),
-                    Issuer = _configuration["Jwt:Issuer"]
+                    //Issuer = _configuration["Jwt:Issuer"]
                 };
 
                 var token = tokenHandler.CreateToken(tokenDescriptor);
