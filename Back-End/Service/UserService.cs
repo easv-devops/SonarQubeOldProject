@@ -86,7 +86,7 @@ namespace Service
             //hashing the pass
             string hashedPassword = HashPassowrd(password);
             
-            var user = _repository.GetById(1);
+            var user = _repository.GetByUsernameAndPassword(username, hashedPassword);
 
             if (user == null)
             return null!;
