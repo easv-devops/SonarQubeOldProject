@@ -1,10 +1,12 @@
 using api.TransferModels;
 using api.TransferModels.CourseEnrollDto;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Service;
 
 namespace api.Controllers
 {
+    [Authorize]
     public class CourseEnrollController : BaseApiController
     {
         private readonly CourseEnrollService _service;
