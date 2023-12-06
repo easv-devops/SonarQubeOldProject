@@ -6,7 +6,7 @@ using Service;
 
 namespace api.Controllers
 {
-    
+    [Authorize("AuthorizedPolicy")]
     public class CourseController : BaseApiController
     {
         private readonly CourseService _courseService;
