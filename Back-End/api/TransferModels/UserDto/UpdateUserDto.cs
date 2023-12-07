@@ -14,7 +14,10 @@ namespace api.TransferModels.UserDto
         public string? Username { get; set; }
         [Required, NotNull]
         [MinLength(10), MaxLength(50)]
+        [EmailAddress(ErrorMessage = "Invalid eamil address!")]
+
         public string? Email { get; set; }
+
         [Required, NotNull]
         [MinLength(8), MaxLength(50)]
         public string? Password { get; set; }

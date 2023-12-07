@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
@@ -13,7 +14,8 @@ namespace api.TransferModels.AuthenticateDto
         public string? Username { get; set; }
         [Required, NotNull]
         [MaxLength(50, ErrorMessage = @"The email addres is too long!")]
-        [RegularExpression(@"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$", ErrorMessage = "Invalid email address!")]
+       // [RegularExpression(@"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$", ErrorMessage = "Invalid email address!")]
+        [EmailAddress(ErrorMessage = "Invalid email address!")]
         public string? Email { get; set; }
         [Required, NotNull]
         [MinLength(8, ErrorMessage = @"Password must be at least 8 characters long!")]
