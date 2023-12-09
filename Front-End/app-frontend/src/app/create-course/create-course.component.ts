@@ -8,9 +8,10 @@ import { BackendService } from '../backend.service';
   styleUrls: ['./create-course.component.css'],
 })
 export class CreateCourseComponent {
-  title: any;
-  description: any;
-  video: any;
+  title: string = '';
+  description:  string = '';
+  video:  string = '';
+  user : string = String(localStorage.getItem('user'));
 
   constructor(
     private router: Router,
@@ -21,9 +22,16 @@ export class CreateCourseComponent {
 
   createCourse(){
 
-    this.backendService.createCourse(this.title,this.description, this.video).subscribe(
+    this.backendService.createCourse(this.title,this.description, this.user).subscribe(
       (res) => {
-        console.log(res);
+        if(res.messageToClient=="Here is the created course api.TransferModels.CourseDto.CreateCourseDto"){
+          this.backendService.createResource(this.title,this.video, res.responseData.id).subscribe((res1)=>{
+            if(res1.messageToClient){
+              console.log(res1.responseData.courseId);
+              this.router.navigate(['course/'+res1.responseData.courseId]);
+            }
+          })
+        }
       }
     )
 

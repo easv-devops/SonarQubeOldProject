@@ -12,10 +12,10 @@
   </div>
 
   <div class="button-holder">
-    <div class="log-in" *ngIf="!loggedIn">Log in</div>
-    <div class="sign-up" *ngIf="!loggedIn">Sign up</div>
-    <div class="my-courses" *ngIf="loggedIn" routerLink="my-courses" >My courses</div>
-    <div class="profile" *ngIf="loggedIn">
+    <div class="log-in" *ngIf="token==null">Log in</div>
+    <div class="sign-up" *ngIf="token==null" routerLink="signup">Sign up</div>
+    <div class="my-courses" *ngIf="token!=null" routerLink="my-courses" >My courses</div>
+    <div class="profile" *ngIf="token!=null" routerLink="home">
       <svg
         width="51"
         height="51"

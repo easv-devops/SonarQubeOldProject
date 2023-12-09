@@ -21,7 +21,11 @@ password: string = "";
 
   createUser(){
     this.backendService.createUser(this.name,this.username,this.email,this.password).subscribe((res)=>{
-     console.log(res);
+     if(res.messageToClient=="Here is the created user: api.TransferModels.UserDto.CreateUserDto"){
+      localStorage.setItem('token',res.responseData.token);
+      localStorage.setItem('user', res.responseData.id);
+      this.router.navigate(['home']);
+     }
 
 
 

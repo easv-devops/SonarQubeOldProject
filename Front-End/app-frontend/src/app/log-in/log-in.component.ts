@@ -17,15 +17,13 @@ password: string = '';
   ) { }
 
   logIn(){
-    this.backendService.gatAllUsers().subscribe((res)=>{
-      res.forEach((e: { username: string; password: string; id: string; }) => {
-        if(e.username == this.username && e.password == this.password){
-          localStorage.setItem('user', e.id);
-
-        }
-
-      });
-    })
+    this.backendService.logIn(this.username,this.password).subscribe((res)=>{
+            if(res.messageToClient=="Login successful!"){
+              localStorage.setItem('token',res.responseData.token);
+              localStorage.setItem('user', res.responseData.id);
+              this.router.navigate(['home']);
+            }
+    });
 
   }
 }

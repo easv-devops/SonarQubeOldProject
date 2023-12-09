@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { environment } from './enviroments';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 
@@ -52,12 +52,18 @@ export class BackendService {
   //Course
   gatAllCourses(): Observable<any> {
     const url = environment.backendapi + '/api/Course';
-    return this.http.get<any[]>(url);
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${localStorage.getItem('token')}`});
+    return this.http.get<any[]>(url, {headers});
   }
 
   gatCourseById(id: Number): Observable<any> {
     const url = environment.backendapi + '/api/Course/' + id;
-    return this.http.get<any>(url);
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${localStorage.getItem('token')}`});
+    return this.http.get<any>(url , {headers});
   }
 
   removeCourseByID(id: any): Observable<any> {
@@ -73,11 +79,20 @@ export class BackendService {
     });
   }
 
-  createCourse(name: string, description: string, videoUrl:string): Observable<any> {
+  createCourse(name: string, description: string, id:string): Observable<any> {
     const url = environment.backendapi + '/api/Course';
-    return this.http.post<any>(url, {
-      BoxName: name,
-    });
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${localStorage.getItem('token')}`});
+
+      const courseData = {
+        name: name,
+        experienceLevel: 1,
+        description: description,
+        ownerId: id,
+        price: 0,
+      };
+    return this.http.post<any>(url, courseData, {headers});
   }
 
 
@@ -177,11 +192,31 @@ export class BackendService {
     });
   }
 
-  createResourceEnroll(name: string): Observable<any> {
+  createResource(name:string,video: string, id: string): Observable<any> {
     const url = environment.backendapi + '/api/Resource';
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${localStorage.getItem('token')}`});
+
+      const videoData = {
+        name: name,
+        type: video,
+        link: video,
+        courseId: id
+      };
+
+    return this.http.post<any>(url,videoData ,{headers});
+  }
+
+
+
+  //Auth
+  logIn(name: string, password: string): Observable<any> {
+    const url = environment.backendapi + '/api/Auth/login';
     return this.http.post<any>(url, {
-      BoxName: name,
-    });
+      "username": name,
+      "password": password
+        });
   }
 
 
