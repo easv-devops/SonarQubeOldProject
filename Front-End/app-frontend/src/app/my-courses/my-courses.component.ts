@@ -20,8 +20,13 @@ export class MyCoursesComponent {
   ngOnInit(): void {
     this.backendService.gatAllCourses().subscribe(
       (res)=> {
-        this.courses=res.responseData;
-        console.log(this.courses);
+        res.responseData.forEach((e: {id: number, name: string; ownerId: string | null; }) => {
+          if(e.ownerId == localStorage.getItem('user')){
+            this.courses.push(e);
+            console.log(this.courses)
+          }
+
+        });
             }
     );
 
@@ -32,7 +37,7 @@ export class MyCoursesComponent {
 
   }
 
-  goToCourse(id:number){
+  selectCource(id:number){
     this.router.navigate(['course/' +id]);
 
   }

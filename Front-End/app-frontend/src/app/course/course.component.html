@@ -1,6 +1,20 @@
-<p class="course-title">{{course.name}}</p>
+<div class="title-input" *ngIf="owner && enrolled">
+  <input type="text" name="" id="" placeholder="{{course.name}}" [(ngModel)]="title">
+</div>
 
-<div class="descriprion">
+<div class="description" *ngIf="owner && enrolled">
+
+  <p class="subtitle">Course description</p>
+  <div class="description-input">
+    <input [(ngModel)]="description" type="text"  class= "descriprion-field" name="" id="" placeholder="{{course.description}}">
+  </div>
+</div>
+
+
+
+<p class="course-title" *ngIf="!owner">{{course.name}}</p>
+
+<div class="descriprion"  *ngIf="!owner">
   <p class="subtitle">Course description</p>
   <p class="description-text">
    {{course.description}}
@@ -16,14 +30,18 @@
 
   <div class="holder" >
   <div class="video-box">
-    <iframe  src="https://www.youtube.com/embed/kUMe1FH4CHE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    <iframe  src="{{video}}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
   </div>
   </div>
 
   <div class="holder" *ngIf="owner">
-  <div class="add-URL-button">
-    <input type="text" placeholder="Video URL" class="video-URL">
-  </div>
-  </div>
+    <div class="add-URL-button">
+      <input [(ngModel)]="video" type="text" placeholder="Video URL" class="video-URL">
+    </div>
+
+    <div class="save" (click)="saveCourse()">
+      Save
+    </div>
+    </div>
 </div>

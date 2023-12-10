@@ -8,7 +8,7 @@
   </div>
 
   <div class="searchbar">
-    <input type="text" placeholder="Search" />
+    <input type="text" placeholder="Search" [(ngModel)]="filter" (input)="filterData()" />
   </div>
 
   <div class="button-holder">
@@ -31,6 +31,15 @@
     </div>
   </div>
 </div>
+
+<p class="searched" *ngIf="filteredCourses.length > 0 && filter.length>0">Searched</p>
+
+<div class="courses" *ngIf="filter.length>0" >
+  <div class="course" *ngFor="let course of filteredCourses" (click)="selectCource(course)">
+    <div class="cours-title">{{course.name}}</div>
+  </div>
+</div>
+
 <router-outlet></router-outlet>
 
 

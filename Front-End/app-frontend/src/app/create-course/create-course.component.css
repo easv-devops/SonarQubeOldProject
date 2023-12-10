@@ -33,7 +33,7 @@ input {
 
 .description-input {
   width: 935px;
-  height: 271px;
+  height: 100px;
   flex-shrink: 0;
   border-radius: 40px;
   border: 1px solid #000;
@@ -48,11 +48,12 @@ input {
   font-weight: 400;
   line-height: normal;
   margin-left: 33px;
+  margin-bottom: 50px;
 }
 
 .descriprion {
   width: 935px;
-  height: 271px;
+  height: 100px;
   flex-shrink: 0;
   border-radius: 40px;
   border: 1px solid #000;

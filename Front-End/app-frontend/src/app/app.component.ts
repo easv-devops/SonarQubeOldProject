@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BackendService } from './backend.service';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -12,9 +13,12 @@ export class AppComponent implements OnInit {
   constructor(
     private router: Router,
    private backendService: BackendService
-  ) { }
+     ) { }
 
   token= localStorage.getItem("token");
+  filter: string = "";
+
+  filteredCourses: any[] = [];
 
   ngOnInit(): void {
     if(this.token==null){
@@ -29,24 +33,28 @@ export class AppComponent implements OnInit {
   page: string = 'home';
 
 
-  switchScreen(type: string) {
-    switch (type) {
-      case 'course':
-        this.page = type;
-        break;
+  filterData() {
+    this.backendService.gatAllCourses().subscribe(
 
-      case 'create-course':
-        this.page = type;
-        break;
+      (res) =>{
+        this.filteredCourses = [];
+        res.responseData.forEach((e: {id:string, name: string | string[]; }) => {
+          if(e.name.includes(this.filter)){
+            this.filteredCourses.push(e)
+          }
 
-      case 'my-courses':
-        this.page = type;
-        console.log('work')
-        break;
+        });
+        console.log(this.filteredCourses);
 
-      case 'create-course':
-        this.page = type;
-        break;
-    }
-  }
+      }
+    )
+      }
+
+      selectCource(course: any){
+        localStorage.setItem('selectedCourse', course.id);
+
+        this.router.navigate(['course/' + course.id]);
+
+      }
+
 }

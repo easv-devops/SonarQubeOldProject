@@ -3,7 +3,6 @@ import { environment } from './enviroments';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-
 @Injectable({
   providedIn: 'root',
 })
@@ -29,41 +28,44 @@ export class BackendService {
   editUserByID(id: number, name: string): Observable<any> {
     const url = environment.backendapi + '/api/Users/' + id;
     return this.http.put<any>(url, {
-      boxID:id,
+      boxID: id,
       BoxName: name,
     });
   }
 
-  createUser(name: string,username: string, email: string, password: string): Observable<any> {
+  createUser(
+    name: string,
+    username: string,
+    email: string,
+    password: string
+  ): Observable<any> {
     const url = environment.backendapi + '/api/Users';
     return this.http.post<any>(url, {
-      'id': 0,
-      'username': username,
-      'email': email,
-      'password': password,
-      'shortDescription': name
-        });
+      id: 0,
+      username: username,
+      email: email,
+      password: password,
+      shortDescription: name,
+    });
   }
-
-
-
-
 
   //Course
   gatAllCourses(): Observable<any> {
     const url = environment.backendapi + '/api/Course';
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${localStorage.getItem('token')}`});
-    return this.http.get<any[]>(url, {headers});
+      Authorization: `Bearer ${localStorage.getItem('token')}`,
+    });
+    return this.http.get<any[]>(url, { headers });
   }
 
   gatCourseById(id: Number): Observable<any> {
     const url = environment.backendapi + '/api/Course/' + id;
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${localStorage.getItem('token')}`});
-    return this.http.get<any>(url , {headers});
+      Authorization: `Bearer ${localStorage.getItem('token')}`,
+    });
+    return this.http.get<any>(url, { headers });
   }
 
   removeCourseByID(id: any): Observable<any> {
@@ -71,32 +73,39 @@ export class BackendService {
     return this.http.delete<any>(url);
   }
 
-  editCourseByID(id: number, name: string): Observable<any> {
+  editCourseByID(id: Number, name: string, description: string, ownerId: string ): Observable<any> {
     const url = environment.backendapi + '/api/Course/' + id;
-    return this.http.put<any>(url, {
-      boxID:id,
-      BoxName: name,
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${localStorage.getItem('token')}`,
     });
+
+    const courseData = {
+      name: name,
+      experienceLevel: 1,
+      description: description,
+      ownerId: ownerId,
+      price: 0,
+    };
+    return this.http.put<any>(url,courseData,{headers});
   }
 
-  createCourse(name: string, description: string, id:string): Observable<any> {
+  createCourse(name: string, description: string, id: string): Observable<any> {
     const url = environment.backendapi + '/api/Course';
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${localStorage.getItem('token')}`});
+      Authorization: `Bearer ${localStorage.getItem('token')}`,
+    });
 
-      const courseData = {
-        name: name,
-        experienceLevel: 1,
-        description: description,
-        ownerId: id,
-        price: 0,
-      };
-    return this.http.post<any>(url, courseData, {headers});
+    const courseData = {
+      name: name,
+      experienceLevel: 1,
+      description: description,
+      ownerId: id,
+      price: 0,
+    };
+    return this.http.post<any>(url, courseData, { headers });
   }
-
-
-
 
   //CourseLevel
   gatAllCourseLevels(): Observable<any> {
@@ -117,7 +126,7 @@ export class BackendService {
   editCourseLevelByID(id: number, name: string): Observable<any> {
     const url = environment.backendapi + '/api/CourseLevel/' + id;
     return this.http.put<any>(url, {
-      boxID:id,
+      boxID: id,
       BoxName: name,
     });
   }
@@ -129,17 +138,18 @@ export class BackendService {
     });
   }
 
-
-
-
-
   //CourseEnroll
   gatAllCourseEnrolls(): Observable<any> {
     const url = environment.backendapi + '/api/CourseEnroll';
-    return this.http.get<any[]>(url);
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${localStorage.getItem('token')}`,
+    });
+
+    return this.http.get<any[]>(url, { headers });
   }
 
-  gatCourseEnrollById(id: number): Observable<any> {
+  gatCourseEnrollById(id: string): Observable<any> {
     const url = environment.backendapi + '/api/CourseEnroll/' + id;
     return this.http.get<any>(url);
   }
@@ -151,25 +161,35 @@ export class BackendService {
 
   editCourseEnrollByID(id: number, name: string): Observable<any> {
     const url = environment.backendapi + '/api/CourseEnroll/' + id;
-    return this.http.put<any>(url, {
-      boxID:id,
-      BoxName: name,
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${localStorage.getItem('token')}`,
     });
+
+    const data = {
+      id: id,
+    };
+    return this.http.put<any>(url, data, { headers });
   }
 
-  createCourseEnroll(name: string): Observable<any> {
+  createCourseEnroll(userId: string, courseId: string  ): Observable<any> {
     const url = environment.backendapi + '/api/CourseEnroll';
-    return this.http.post<any>(url, {
-      BoxName: name,
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${localStorage.getItem('token')}`,
+    });
+
+    const data = {
+      userId: userId,
+      courseId: courseId,
+    };
+    return this.http.post<any>(url,data , {
+      headers
     });
   }
 
-
-
-
-
-   //Resources
-   gatAllResources(): Observable<any> {
+  //Resources
+  gatAllResources(): Observable<any> {
     const url = environment.backendapi + '/api/Resource';
     return this.http.get<any[]>(url);
   }
@@ -184,41 +204,48 @@ export class BackendService {
     return this.http.delete<any>(url);
   }
 
-  editResourceByID(id: number, name: string): Observable<any> {
+  editResourceByID(id: string, name: string, video: string, courseId: Number): Observable<any> {
     const url = environment.backendapi + '/api/Resource/' + id;
-    return this.http.put<any>(url, {
-      boxID:id,
-      BoxName: name,
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${localStorage.getItem('token')}`,
+    });
+
+    const videoData = {
+      name: name,
+      type: video,
+      link: video,
+      courseId: courseId,
+    };
+
+    return this.http.put<any>(url,videoData, {
+      headers
     });
   }
 
-  createResource(name:string,video: string, id: string): Observable<any> {
+  createResource(name: string, video: string, id: string): Observable<any> {
     const url = environment.backendapi + '/api/Resource';
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${localStorage.getItem('token')}`});
+      Authorization: `Bearer ${localStorage.getItem('token')}`,
+    });
 
-      const videoData = {
-        name: name,
-        type: video,
-        link: video,
-        courseId: id
-      };
+    const videoData = {
+      name: name,
+      type: video,
+      link: video,
+      courseId: id,
+    };
 
-    return this.http.post<any>(url,videoData ,{headers});
+    return this.http.post<any>(url, videoData, { headers });
   }
-
-
 
   //Auth
   logIn(name: string, password: string): Observable<any> {
     const url = environment.backendapi + '/api/Auth/login';
     return this.http.post<any>(url, {
-      "username": name,
-      "password": password
-        });
+      username: name,
+      password: password,
+    });
   }
-
-
-  }
-
+}

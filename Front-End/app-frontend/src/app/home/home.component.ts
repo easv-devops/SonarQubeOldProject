@@ -10,6 +10,7 @@ import { BackendService } from '../backend.service';
 export class HomeComponent implements OnInit {
 
   courses: any[] = [];
+  myCourses: any[] = [];
   enrolledCourses: any[] = [];
 
 
@@ -23,10 +24,22 @@ export class HomeComponent implements OnInit {
       (res)=> {
         this.courses=res.responseData;
         console.log(this.courses);
-            }
-    );
+        this.backendService.gatAllCourseEnrolls().subscribe((res1) => {
+          res1.responseData.forEach((e: { userId: string | null; courseId: Number; }) => {
+            if(e.userId == localStorage.getItem('user')) {
+              this.courses.forEach(c=>{
+                if(c.id == e.courseId){
+                  this.myCourses.push(c);
+                }
+              })
 
-    }
+            }
+
+          });
+      }
+
+    );})}
+
 
   selectCource(course: any){
     localStorage.setItem('selectedCourse', course.id);

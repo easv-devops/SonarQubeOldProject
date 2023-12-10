@@ -1,8 +1,8 @@
-<p class="most-popular">Most Popular</p>
+<p class="most-popular">My courses</p>
 
-<div class="courses">
-  <div class="course" (click)="selectCource(1)">
-    <div class="cours-title">HTML for Beginners</div>
+<div class="courses" >
+  <div class="course" *ngFor="let course of myCourses" (click)="selectCource(course)">
+    <div class="cours-title">{{course.name}}</div>
   </div>
 </div>
 
