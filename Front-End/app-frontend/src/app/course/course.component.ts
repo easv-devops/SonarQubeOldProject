@@ -11,14 +11,15 @@ export class CourseComponent implements OnInit {
   cousreId: Number = Number(localStorage.getItem('selectedCourse'));
   user: string = String(localStorage.getItem('user'));
   course: any = null;
-  video:  string = '';
+  video: string = '';
   enrolled: boolean = false;
 
   owner: boolean = false;
   title: string = '';
-  description:  string = '';
+  description: string = '';
   recourceId: string = '';
-
+  selected: string = '';
+  levelOfEducation: string = '';
 
   constructor(
     private router: Router,
@@ -36,6 +37,18 @@ export class CourseComponent implements OnInit {
       this.title = this.course.name;
       this.description = this.course.description;
 
+      switch (this.course.experienceLevel) {
+        case 1:
+          this.levelOfEducation = 'Beginner';
+          break;
+        case 2:
+          this.levelOfEducation = 'Intermediate';
+          break;
+        case 3:
+          this.levelOfEducation = 'Advanced';
+          break;
+      }
+
       if (this.course.ownerId == this.user) {
         this.owner = true;
         this.enrolled = true;
@@ -50,20 +63,19 @@ export class CourseComponent implements OnInit {
             ) {
               this.enrolled = true;
             }
-
           }
         );
-        this.backendService.gatAllResources().subscribe((res2) =>{
-          res2.responseData.forEach((m: {id:string; courseId: Number; link: string; }) => {
-            if(m.courseId == this.cousreId){
-              this.video = m.link;
-              this.recourceId= m.id;
+        this.backendService.gatAllResources().subscribe((res2) => {
+          res2.responseData.forEach(
+            (m: { id: string; courseId: Number; link: string }) => {
+              if (m.courseId == this.cousreId) {
+                this.video = m.link;
+                this.recourceId = m.id;
+              }
             }
-
-          });
-        })
+          );
+        });
       });
-
     });
   }
 
@@ -76,19 +88,27 @@ export class CourseComponent implements OnInit {
       });
   }
 
-  saveCourse(){
-    this.backendService.editCourseByID(this.cousreId, this.title, this.description,this.user).subscribe(
-      (res) => {
+  saveCourse() {
+    this.backendService
+      .editCourseByID(
+        this.cousreId,
+        this.title,
+        this.description,
+        this.user,
+        this.selected
+      )
+      .subscribe((res) => {
         console.log(res);
-        this.backendService.editResourceByID(this.recourceId,this.title,this.video,this.cousreId).subscribe(
-          (res) => {
+        this.backendService
+          .editResourceByID(
+            this.recourceId,
+            this.title,
+            this.video,
+            this.cousreId
+          )
+          .subscribe((res) => {
             console.log(res);
-
-          }
-        )
-
-      }
-    )
-
+          });
+      });
   }
 }

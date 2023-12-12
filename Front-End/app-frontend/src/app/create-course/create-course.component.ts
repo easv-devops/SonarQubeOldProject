@@ -12,6 +12,7 @@ export class CreateCourseComponent {
   description:  string = '';
   video:  string = '';
   user : string = String(localStorage.getItem('user'));
+  selected: string = "";
 
   constructor(
     private router: Router,
@@ -22,7 +23,7 @@ export class CreateCourseComponent {
 
   createCourse(){
 
-    this.backendService.createCourse(this.title,this.description, this.user).subscribe(
+    this.backendService.createCourse(this.title,this.description, this.user, this.selected).subscribe(
       (res) => {
         if(res.messageToClient=="Here is the created course api.TransferModels.CourseDto.CreateCourseDto"){
           this.backendService.createResource(this.title,this.video, res.responseData.id).subscribe((res1)=>{

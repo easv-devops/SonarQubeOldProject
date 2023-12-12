@@ -73,7 +73,7 @@ export class BackendService {
     return this.http.delete<any>(url);
   }
 
-  editCourseByID(id: Number, name: string, description: string, ownerId: string ): Observable<any> {
+  editCourseByID(id: Number, name: string, description: string, ownerId: string, level: string ): Observable<any> {
     const url = environment.backendapi + '/api/Course/' + id;
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -82,7 +82,7 @@ export class BackendService {
 
     const courseData = {
       name: name,
-      experienceLevel: 1,
+      experienceLevel: level,
       description: description,
       ownerId: ownerId,
       price: 0,
@@ -90,7 +90,7 @@ export class BackendService {
     return this.http.put<any>(url,courseData,{headers});
   }
 
-  createCourse(name: string, description: string, id: string): Observable<any> {
+  createCourse(name: string, description: string, id: string, level: string): Observable<any> {
     const url = environment.backendapi + '/api/Course';
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -99,7 +99,7 @@ export class BackendService {
 
     const courseData = {
       name: name,
-      experienceLevel: 1,
+      experienceLevel: level,
       description: description,
       ownerId: id,
       price: 0,
