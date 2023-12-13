@@ -21,6 +21,9 @@ export class CourseComponent implements OnInit {
   selected: string = '';
   levelOfEducation: string = '';
 
+  titleReg : RegExp = /^[a-zA-Z ]{6,30}$/;
+  descriptionReg : RegExp =/^[a-zA-Z ]{10,30}$/;
+
   constructor(
     private router: Router,
     private backendService: BackendService,
@@ -89,6 +92,8 @@ export class CourseComponent implements OnInit {
   }
 
   saveCourse() {
+    if(this.titleReg.test(this.title) && this.title!='Incorrect course info ' && this.descriptionReg.test(this.description) && this.video.length>10){
+
     this.backendService
       .editCourseByID(
         this.cousreId,
@@ -110,5 +115,8 @@ export class CourseComponent implements OnInit {
             console.log(res);
           });
       });
+    }else{
+      this.title = "Incorrect course info "
+    }
   }
 }

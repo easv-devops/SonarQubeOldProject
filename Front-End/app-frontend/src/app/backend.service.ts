@@ -213,7 +213,7 @@ export class BackendService {
 
     const videoData = {
       name: name,
-      type: video,
+      type: "video",
       link: video,
       courseId: courseId,
     };

@@ -12,7 +12,11 @@
   <div class="sort"></div>
 
   <div class="categories">
-    <div class="category"></div>
+    <div class="category" (click)="selectCategory(1)" [ngClass]="{'selectedLevel' : level=='Beginner'}">Beginner</div>
+    <div class="category" (click)="selectCategory(2)" [ngClass]="{'selectedLevel' : level=='Intermediate'}">Intermediate</div>
+    <div class="category" (click)="selectCategory(3)" [ngClass]="{'selectedLevel' : level=='Advanced'}">Advanced</div>
+    <div class="category" (click)="selectCategory(4)" [ngClass]="{'selectedLevel' : level=='Professional'}">Professional</div>
+
   </div>
 </div>
 

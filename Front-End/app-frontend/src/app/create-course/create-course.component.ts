@@ -13,6 +13,9 @@ export class CreateCourseComponent {
   video:  string = '';
   user : string = String(localStorage.getItem('user'));
   selected: string = "";
+  titleReg : RegExp = /^[a-zA-Z ]{6,30}$/;
+  descriptionReg : RegExp =/^[a-zA-Z ]{10,30}$/;
+
 
   constructor(
     private router: Router,
@@ -22,6 +25,8 @@ export class CreateCourseComponent {
 
 
   createCourse(){
+    if(this.titleReg.test(this.title) && this.title!='Incorrect course info '
+    && this.descriptionReg.test(this.description) && this.video.length>10){
 
     this.backendService.createCourse(this.title,this.description, this.user, this.selected).subscribe(
       (res) => {
@@ -35,6 +40,9 @@ export class CreateCourseComponent {
         }
       }
     )
+    }else{
+      this.title = "Incorrect course info "
+    }
 
   }
 }
