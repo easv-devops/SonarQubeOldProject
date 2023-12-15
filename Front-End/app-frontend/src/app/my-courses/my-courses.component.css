@@ -6,16 +6,15 @@
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  margin-left: 33px;
+  margin-left: 55px;
 }
 
 .courses {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 30px;
-  padding-left: 30px;
+  padding: 20px;
+  padding-left: 80px;
 }
 
 .course {
@@ -27,14 +26,19 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
+  border-radius: 20px;
 }
 
 .cours-title {
   width: 396px;
-  height: 83px;
+  height: 254px;
   flex-shrink: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: #0174be;
   color: #f2f2f2;
+  box-shadow: inset rgba(60, 70, 85, 0.5) 0px 0px 40px 0px,
+    inset rgba(60, 70, 85, 0.5) 0px 0px 40px 0px,
+    inset rgba(0, 0, 0, 1) 0px 0px 36px -24px;
+    border-radius: 20px;
 
   font-family: Inter;
   font-size: 35px;

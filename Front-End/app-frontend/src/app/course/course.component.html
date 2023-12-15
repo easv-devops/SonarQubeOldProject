@@ -30,8 +30,10 @@
     <label>Select an level of education</label>
     <select [(ngModel)]="selected" *ngIf="owner">
       <option value="1" >Beginner</option>
-      <option value="2">Intermediate</option>
+      <option value="4">Intermediate</option>
       <option value="3">Advance</option>
+      <option value="27">Professionall</option>
+
     </select>
     <div class="level" *ngIf="!owner">{{levelOfEducation}}</div>
   </div>
@@ -39,7 +41,7 @@
 
   <div class="holder" >
   <div class="video-box">
-    <iframe  src="{{video}}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    <iframe  [src]="outVideo"  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
   </div>
   </div>

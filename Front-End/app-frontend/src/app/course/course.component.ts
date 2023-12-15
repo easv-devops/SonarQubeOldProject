@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SecurityContext } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BackendService } from '../backend.service';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-course',
@@ -11,6 +12,7 @@ export class CourseComponent implements OnInit {
   cousreId: Number = Number(localStorage.getItem('selectedCourse'));
   user: string = String(localStorage.getItem('user'));
   course: any = null;
+  outVideo: SafeResourceUrl = '';
   video: string = '';
   enrolled: boolean = false;
 
@@ -24,10 +26,13 @@ export class CourseComponent implements OnInit {
   titleReg : RegExp = /^[a-zA-Z ]{6,30}$/;
   descriptionReg : RegExp =/^[a-zA-Z ]{10,30}$/;
 
+  videoOut: SafeResourceUrl | undefined ;
+
   constructor(
     private router: Router,
     private backendService: BackendService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private readonly domSanitizer: DomSanitizer
   ) {}
 
   ngOnInit(): void {
@@ -72,7 +77,9 @@ export class CourseComponent implements OnInit {
           res2.responseData.forEach(
             (m: { id: string; courseId: Number; link: string }) => {
               if (m.courseId == this.cousreId) {
+                this.outVideo =this.domSanitizer.bypassSecurityTrustResourceUrl( m.link.replace("watch?v=","embed/"));
                 this.video = m.link;
+                this.sanitize();
                 this.recourceId = m.id;
               }
             }
@@ -80,6 +87,7 @@ export class CourseComponent implements OnInit {
         });
       });
     });
+
   }
 
   startCourse() {
@@ -105,18 +113,26 @@ export class CourseComponent implements OnInit {
       .subscribe((res) => {
         console.log(res);
         this.backendService
-          .editResourceByID(
-            this.recourceId,
-            this.title,
-            this.video,
-            this.cousreId
-          )
-          .subscribe((res) => {
-            console.log(res);
-          });
+          .removeResourceByID(this.recourceId)
+          .subscribe((res2) => {
+            console.log(res2);
+            this.backendService
+            .createResource(
+              this.title,
+              this.video,
+              this.cousreId.toString()
+            ).subscribe((res3) => {
+              console.log(res3);
+            })
+          })
       });
     }else{
       this.title = "Incorrect course info "
     }
   }
+
+  sanitize(){
+    this.videoOut = this.domSanitizer.bypassSecurityTrustResourceUrl(this.video);//then bypass
+    }
+
 }
