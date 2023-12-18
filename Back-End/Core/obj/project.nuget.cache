@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "L+22bn8Ko9kg1RCTuiWJoVvILwYRuxo0ksnCbiixEc0Lub4qrBTJE+I6BE4U26+5rh1HBSCeql5IJlZSPtEmsA==",
+  "dgSpecHash": "LfsKecPRahPLL+EngPhwcfV/dbIqETb0w1fhH5HywRnsmJugBjo+8cBxjNTvGUlRLKssqIjVe0FSWx9ESO7WZQ==",
   "success": true,
-  "projectFilePath": "/Users/dimitar/Desktop/DA_Education_WebApp/Back-End/Core/Core.csproj",
+  "projectFilePath": "C:\\Users\\Atanas Stoyanov\\OneDrive - Erhvervsakademi Sydvest\\Dokumenter\\GitHub\\DA_Education_WebApp\\Back-End\\Core\\Core.csproj",
   "expectedPackageFiles": [
-    "/Users/dimitar/.nuget/packages/dapper/2.1.21/dapper.2.1.21.nupkg.sha512"
+    "C:\\Users\\Atanas Stoyanov\\.nuget\\packages\\dapper\\2.1.21\\dapper.2.1.21.nupkg.sha512"
   ],
   "logs": []
 }

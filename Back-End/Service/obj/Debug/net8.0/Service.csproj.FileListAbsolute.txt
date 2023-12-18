@@ -34,3 +34,21 @@ C:/Users/Atanas Stoyanov/OneDrive - Erhvervsakademi Sydvest/Dokumenter/GitHub/DA
 /Users/dimitar/Desktop/DA_Education_WebApp/Back-End/Service/obj/Debug/net8.0/refint/Service.dll
 /Users/dimitar/Desktop/DA_Education_WebApp/Back-End/Service/obj/Debug/net8.0/Service.pdb
 /Users/dimitar/Desktop/DA_Education_WebApp/Back-End/Service/obj/Debug/net8.0/ref/Service.dll
+C:\Users\Atanas Stoyanov\OneDrive - Erhvervsakademi Sydvest\Dokumenter\GitHub\DA_Education_WebApp\Back-End\Service\bin\Debug\net8.0\Service.deps.json
+C:\Users\Atanas Stoyanov\OneDrive - Erhvervsakademi Sydvest\Dokumenter\GitHub\DA_Education_WebApp\Back-End\Service\bin\Debug\net8.0\Service.dll
+C:\Users\Atanas Stoyanov\OneDrive - Erhvervsakademi Sydvest\Dokumenter\GitHub\DA_Education_WebApp\Back-End\Service\bin\Debug\net8.0\Service.pdb
+C:\Users\Atanas Stoyanov\OneDrive - Erhvervsakademi Sydvest\Dokumenter\GitHub\DA_Education_WebApp\Back-End\Service\bin\Debug\net8.0\Core.dll
+C:\Users\Atanas Stoyanov\OneDrive - Erhvervsakademi Sydvest\Dokumenter\GitHub\DA_Education_WebApp\Back-End\Service\bin\Debug\net8.0\infrastructure.dll
+C:\Users\Atanas Stoyanov\OneDrive - Erhvervsakademi Sydvest\Dokumenter\GitHub\DA_Education_WebApp\Back-End\Service\bin\Debug\net8.0\infrastructure.pdb
+C:\Users\Atanas Stoyanov\OneDrive - Erhvervsakademi Sydvest\Dokumenter\GitHub\DA_Education_WebApp\Back-End\Service\bin\Debug\net8.0\Core.pdb
+C:\Users\Atanas Stoyanov\OneDrive - Erhvervsakademi Sydvest\Dokumenter\GitHub\DA_Education_WebApp\Back-End\Service\obj\Debug\net8.0\Service.csproj.AssemblyReference.cache
+C:\Users\Atanas Stoyanov\OneDrive - Erhvervsakademi Sydvest\Dokumenter\GitHub\DA_Education_WebApp\Back-End\Service\obj\Debug\net8.0\Service.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Atanas Stoyanov\OneDrive - Erhvervsakademi Sydvest\Dokumenter\GitHub\DA_Education_WebApp\Back-End\Service\obj\Debug\net8.0\Service.AssemblyInfoInputs.cache
+C:\Users\Atanas Stoyanov\OneDrive - Erhvervsakademi Sydvest\Dokumenter\GitHub\DA_Education_WebApp\Back-End\Service\obj\Debug\net8.0\Service.AssemblyInfo.cs
+C:\Users\Atanas Stoyanov\OneDrive - Erhvervsakademi Sydvest\Dokumenter\GitHub\DA_Education_WebApp\Back-End\Service\obj\Debug\net8.0\Service.csproj.CoreCompileInputs.cache
+C:\Users\Atanas Stoyanov\OneDrive - Erhvervsakademi Sydvest\Dokumenter\GitHub\DA_Education_WebApp\Back-End\Service\obj\Debug\net8.0\Service.sourcelink.json
+C:\Users\Atanas Stoyanov\OneDrive - Erhvervsakademi Sydvest\Dokumenter\GitHub\DA_Education_WebApp\Back-End\Service\obj\Debug\net8.0\Service.csproj.CopyComplete
+C:\Users\Atanas Stoyanov\OneDrive - Erhvervsakademi Sydvest\Dokumenter\GitHub\DA_Education_WebApp\Back-End\Service\obj\Debug\net8.0\Service.dll
+C:\Users\Atanas Stoyanov\OneDrive - Erhvervsakademi Sydvest\Dokumenter\GitHub\DA_Education_WebApp\Back-End\Service\obj\Debug\net8.0\refint\Service.dll
+C:\Users\Atanas Stoyanov\OneDrive - Erhvervsakademi Sydvest\Dokumenter\GitHub\DA_Education_WebApp\Back-End\Service\obj\Debug\net8.0\Service.pdb
+C:\Users\Atanas Stoyanov\OneDrive - Erhvervsakademi Sydvest\Dokumenter\GitHub\DA_Education_WebApp\Back-End\Service\obj\Debug\net8.0\ref\Service.dll
