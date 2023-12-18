@@ -3,6 +3,7 @@ using api.Middleware;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.Net.Http.Headers;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -20,7 +21,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         options.TokenValidationParameters = new TokenValidationParameters
         {
             ValidateIssuer = false,
-            ValidateAudience = false, // Set to true if your token includes an audience claim
+            ValidateAudience = false, 
             ValidateLifetime = true,
             ValidateIssuerSigningKey = true,
            // ValidIssuer = "http://localhost:5001/api/Auth/login",
@@ -33,7 +34,6 @@ builder.Services.AddAuthorization(options =>
             .RequireAuthenticatedUser()
             .Build();
         
-        // Your existing "AuthorizedPolicy"
         options.AddPolicy("AuthorizedPolicy", policy =>
         {
             policy.AuthenticationSchemes.Add(JwtBearerDefaults.AuthenticationScheme);
@@ -41,12 +41,12 @@ builder.Services.AddAuthorization(options =>
         });
     });
 
-/*
-var frontEndRelativePath = "../../../Fromt-end/my-app/www";
+
+var frontEndRelativePath = "../../Front-End/app-frontend/www";
 
 builder.Services.AddSpaStaticFiles(
     configuration => { configuration.RootPath = frontEndRelativePath; });
-    */
+    
 var app = builder.Build();
 
 
@@ -60,7 +60,7 @@ app.UseMiddleware<GlobalExceptionHandler>();
 app.UseCors(c => c.AllowAnyHeader().AllowAnyOrigin().AllowAnyMethod());
 
 app.UseSwaggerDocumentation();
-/*
+
 app.UseSpaStaticFiles(new StaticFileOptions()
  {
      OnPrepareResponse = ctx =>
@@ -73,16 +73,13 @@ app.UseSpaStaticFiles(new StaticFileOptions()
 
 app.Map($"/{frontEndRelativePath}", (IApplicationBuilder frontendApp) => 
 {
-    frontendApp.UseSpa(spa => { spa.Options.SourcePath = "../../../Fromt-end/my-app/www"; });
+    frontendApp.UseSpa(spa => { spa.Options.SourcePath = "../../Front-End/app-frontend/www"; });
 });
-
 
 app.UseSpa(conf =>
 {
     conf.Options.SourcePath = frontEndRelativePath;
 });
-*/
-
 
 app.UseCors(options =>
 {
@@ -92,9 +89,9 @@ app.UseCors(options =>
         .AllowCredentials();
 });
 
-//app.UseSpaStaticFiles();
+app.UseSpaStaticFiles();
 
-//app.UseSpa(conf => { conf.Options.SourcePath = frontEndRelativePath; });
+app.UseSpa(conf => { conf.Options.SourcePath = frontEndRelativePath; });
 
 app.MapControllers();
 app.Run();

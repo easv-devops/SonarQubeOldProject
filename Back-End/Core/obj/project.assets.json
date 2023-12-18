@@ -46,19 +46,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/dimitar/.nuget/packages/": {}
+    "C:\\Users\\Atanas Stoyanov\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/dimitar/Desktop/DA_Education_WebApp/Back-End/Core/Core.csproj",
+      "projectUniqueName": "C:\\Users\\Atanas Stoyanov\\OneDrive - Erhvervsakademi Sydvest\\Dokumenter\\GitHub\\DA_Education_WebApp\\Back-End\\Core\\Core.csproj",
       "projectName": "Core",
-      "projectPath": "/Users/dimitar/Desktop/DA_Education_WebApp/Back-End/Core/Core.csproj",
-      "packagesPath": "/Users/dimitar/.nuget/packages/",
-      "outputPath": "/Users/dimitar/Desktop/DA_Education_WebApp/Back-End/Core/obj/",
+      "projectPath": "C:\\Users\\Atanas Stoyanov\\OneDrive - Erhvervsakademi Sydvest\\Dokumenter\\GitHub\\DA_Education_WebApp\\Back-End\\Core\\Core.csproj",
+      "packagesPath": "C:\\Users\\Atanas Stoyanov\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Atanas Stoyanov\\OneDrive - Erhvervsakademi Sydvest\\Dokumenter\\GitHub\\DA_Education_WebApp\\Back-End\\Core\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/dimitar/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\Atanas Stoyanov\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -103,7 +103,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.100/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100-rc.2.23502.2/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

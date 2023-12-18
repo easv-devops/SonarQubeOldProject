@@ -104,7 +104,8 @@ namespace ApiTests
             //arrange
             using (var conn = await ContextConfig.DataSource.OpenConnectionAsync())
             {
-                var insertedCourseLevel = conn.QueryFirst<CourseLevel>($@"Select * from da_education.course_level where level='Professional';");
+                var insertedCourseLevel = conn.QueryFirst<CourseLevel>($@"Select * from da_education.course_level where level='Professional'
+                                                                        order by id desc limit 1;");
 
                 int courseLevelToDeleteId = insertedCourseLevel.Id;
 
