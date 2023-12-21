@@ -1,0 +1,65 @@
+.my-courses {
+  color: #000;
+
+  font-family: Inter;
+  font-size: 50px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-left: 55px;
+}
+
+.courses {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  padding: 20px;
+  padding-left: 80px;
+}
+
+.course {
+  width: 396px;
+  height: 254px;
+  flex-shrink: 0;
+  background: rgba(0, 0, 0, 0.22);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  border-radius: 20px;
+}
+
+.cours-title {
+  width: 396px;
+  height: 254px;
+  flex-shrink: 0;
+  background: #0174be;
+  color: #f2f2f2;
+  box-shadow: inset rgba(60, 70, 85, 0.5) 0px 0px 40px 0px,
+    inset rgba(60, 70, 85, 0.5) 0px 0px 40px 0px,
+    inset rgba(0, 0, 0, 1) 0px 0px 36px -24px;
+    border-radius: 20px;
+
+  font-family: Inter;
+  font-size: 35px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-cours {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #0c356a;
+
+  font-family: Inter;
+  font-size: 150px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+}

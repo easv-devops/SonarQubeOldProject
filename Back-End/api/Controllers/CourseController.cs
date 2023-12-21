@@ -1,11 +1,12 @@
 using api.TransferModels;
 using api.TransferModels.CourseDto;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Service;
 
 namespace api.Controllers
 {
-
+    [Authorize("AuthorizedPolicy")]
     public class CourseController : BaseApiController
     {
         private readonly CourseService _courseService;

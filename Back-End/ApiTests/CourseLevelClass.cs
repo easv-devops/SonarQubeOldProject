@@ -98,5 +98,39 @@ namespace ApiTests
             }
         }
 
+        [Test]
+        public async Task DeleteCourseLevelById()
+        {
+            //arrange
+            using (var conn = await ContextConfig.DataSource.OpenConnectionAsync())
+            {
+                var insertedCourseLevel = conn.QueryFirst<CourseLevel>($@"Select * from da_education.course_level where level='Professional'
+                                                                        order by id desc limit 1;");
+
+                int courseLevelToDeleteId = insertedCourseLevel.Id;
+
+                 
+                    using (HttpClient client = new HttpClient())
+                    {
+
+                        HttpResponseMessage response =
+                            await client.DeleteAsync($"{ContextConfig.ApiBaseUrl}/CourseLevel/{courseLevelToDeleteId}");
+
+                        if (response.IsSuccessStatusCode)
+                        {
+                            Console.WriteLine($"DELETE request for CourseLevel ID: {courseLevelToDeleteId} was successful.");
+                        }
+                        else
+                        {
+                            Console.WriteLine($"DELETE request failed with status code: {response.StatusCode}");
+                            string responseContent = await response.Content.ReadAsStringAsync();
+                            Console.WriteLine($"Response content: {responseContent}");
+                        }
+
+                        response.IsSuccessStatusCode.Should().BeTrue("DELETE request should return 204 No Content on success.");
+                    }       
+            }
+        }
+
     }
 }

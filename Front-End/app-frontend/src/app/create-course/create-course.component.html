@@ -1,0 +1,40 @@
+<div class="title-input">
+  <input type="text" name="" id="" placeholder="Insert course title" [(ngModel)]="title">
+</div>
+
+<div class="description">
+
+  <p class="subtitle">Course description</p>
+  <div class="description-input">
+    <input [(ngModel)]="description" type="textarea"  class= "descriprion" name="" id="" placeholder="Insert course description">
+  </div>
+</div>
+
+<div class="select">
+  <label>Select an level of education</label>
+  <select [(ngModel)]="selected">
+    <option value="1" >Beginner</option>
+    <option value="4">Intermediate</option>
+    <option value="3">Advance</option>
+    <option value="27">Professionall</option>
+
+  </select>
+</div>
+
+
+<div class="video">
+  <p class="video-title">
+    Video
+  </p>
+
+  <div class="holder">
+    <div class="add-URL-button">
+      <input [(ngModel)]="video" type="text" placeholder="Video URL" class="video-URL">
+    </div>
+
+    <div class="create" (click)="createCourse()">
+      Create
+    </div>
+    </div>
+
+</div>

@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using api.TransferModels;
 using api.TransferModels.AuthenticateDto;
 using Microsoft.AspNetCore.Mvc;
@@ -30,11 +26,24 @@ namespace api.Controllers
         [HttpPost("login")]
         public ResponseDto Login([FromBody] LoginDto dto)
         {
-            return new ResponseDto()
+             var authenticatedUser = _userService.AuthenticateUser(dto.Username!, dto.Password!);
+
+            if (authenticatedUser != null)
             {
-                MessageToClient = "Login successful!",
-                ResponseData = _userService.AuthenticateUser(dto.Username!, dto.Password!)
-            };
+                return new ResponseDto
+                {
+                    MessageToClient = "Login successful!",
+                    ResponseData = authenticatedUser
+                };
+            }
+            else
+            {
+                return new ResponseDto
+                {
+                    MessageToClient = "Invalid credentials",
+                    ResponseData = null
+                };
+            }
         }
     }
 }
