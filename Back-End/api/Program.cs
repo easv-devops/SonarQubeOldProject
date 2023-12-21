@@ -41,12 +41,13 @@ builder.Services.AddAuthorization(options =>
         });
     });
 
+/*
 
 var frontEndRelativePath = "../../Front-End/app-frontend/www";
 
 builder.Services.AddSpaStaticFiles(
     configuration => { configuration.RootPath = frontEndRelativePath; });
-    
+   */
 var app = builder.Build();
 
 
@@ -60,7 +61,7 @@ app.UseMiddleware<GlobalExceptionHandler>();
 app.UseCors(c => c.AllowAnyHeader().AllowAnyOrigin().AllowAnyMethod());
 
 app.UseSwaggerDocumentation();
-
+/*
 app.UseSpaStaticFiles(new StaticFileOptions()
  {
      OnPrepareResponse = ctx =>
@@ -80,7 +81,7 @@ app.UseSpa(conf =>
 {
     conf.Options.SourcePath = frontEndRelativePath;
 });
-
+*/
 app.UseCors(options =>
 {
     options.SetIsOriginAllowed(origin => true)
@@ -89,9 +90,9 @@ app.UseCors(options =>
         .AllowCredentials();
 });
 
-app.UseSpaStaticFiles();
+//app.UseSpaStaticFiles();
 
-app.UseSpa(conf => { conf.Options.SourcePath = frontEndRelativePath; });
+//app.UseSpa(conf => { conf.Options.SourcePath = frontEndRelativePath; });
 
 app.MapControllers();
 app.Run();
