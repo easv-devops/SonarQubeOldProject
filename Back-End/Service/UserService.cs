@@ -44,28 +44,23 @@ namespace Service
         }
 
         public User CreateUser(string username, string email, string password, string shortDescription)
-        { try
-    {
-        // Hash the password before storing in the database
-        string hashedPassword = HashPassowrd(password); // Fixed typo in method name
+        { 
+            try
+            {
+            
+            string hashedPassword = HashPassowrd(password); 
 
-        // Log relevant information
-        Console.WriteLine($"Creating user: {username}, {email}, {shortDescription}");
+            var user = _repository.Create(username, email, hashedPassword, shortDescription);
+        
+            user.Token = _authenticationService.GenerateJwtToken(user);
 
-        var user = _repository.Create(username, email, hashedPassword, shortDescription);
-
-        Console.WriteLine(user.Username + user.Password);
-        // Generate and return JWT token after user creation
-        user.Token = _authenticationService.GenerateJwtToken(user);
-
-        return user;
-    }
-    catch (Exception ex)
-    {
-        // Log the exception details
-        Console.WriteLine($"Error creating user: {ex.Message}");
-        throw new Exception("Could not create this user!", ex);
-    }
+            return user;
+            }
+            catch (Exception ex)
+            {
+            
+            throw new Exception("Could not create this user!", ex);
+            }
         }
 
         public User UpdateUser(int id, string username, string email, string password, string shortDescription)
@@ -76,8 +71,8 @@ namespace Service
             }
             catch(Exception ex)
             {
-                Console.WriteLine($"Error updating user: {ex.Message}");
-                throw; // Re-throw the exception or handle it appropriately
+                
+                throw; 
             }
         }
 

@@ -56,6 +56,7 @@ namespace infrastructure.Data.Repository
                 return conn.QueryFirst<User>(sql, parameters);
             }
         }
+        
         public User Update(int id, string username, string email, string password, string shortDescription)
         {
             var sql = $@"update da_education.users set username = @username, email = @email,
