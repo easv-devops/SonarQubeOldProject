@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/1ae9cf12-f1ab-477b-9e6d-6cc8f8045560/resourceGroups/DaEducation_group/providers/Microsoft.Web/sites/DaEducation",
+    "appService.deploySubpath": "Back-End"
+}
