@@ -62,7 +62,8 @@ jobs:
         run: npm install --save-dev cypress  
 
       - name: Run Cypress tests
-        run: cd ./Front-End/app-frontend
+        run: |
+             cd ./Front-End/app-frontend
              npx cypress run
  
       
