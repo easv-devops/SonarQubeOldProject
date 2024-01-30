@@ -2,31 +2,61 @@ name: workflow
 on:
   push:
     branch:
-      -main
-    pull_request:
-      branch:
-        - '*'
+      - main
+  pull_request:
+    branches:
+      - '*'
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-dotnet@v3
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup .NET and install Playwright
+        uses: actions/setup-dotnet@v3
         with:
           dotnet-version: '8'
-          
-      - name: Build test code and install playwright test browser
-        run: cd ./Back-End/ApiTests  && dotnet build && pwsh bin/Debug/net8.0/playwright.ps1 install --with-deps
+
+      - name: Build test code and install Playwright test browser
+        run: |
+          cd ./Back-End/ApiTests
+          dotnet build
+          pwsh bin/Debug/net8.0/playwright.ps1 install --with-deps
 
       - name: Build and run Web API + getting process ID for shutting down later
-        run: cd ./Back-End/api && dotnet run & echo "API_PID=$!" >> $GITHUB_ENV
+        run: |
+          cd ./Back-End/api
+          dotnet run & echo "API_PID=$!" >> $GITHUB_ENV
         env:
-          pgconn: ${{secrets.PGCONN}}
+          pgconn: ${{ secrets.PGCONN }}
 
       - name: Run tests once API is running (sleep interval set to 60 seconds)
-        run: cd ./Back-End/ApiTests && sleep 60 && dotnet test
+        run: |
+          cd ./Back-End/ApiTests
+          sleep 60
+          dotnet test
         env:
-          pgconn: ${{secrets.PGCONN}}
-          
+          pgconn: ${{ secrets.PGCONN }}
+
       - name: Shutdown Web API once the tests are done running
         run: kill $API_PID
+
+  e2e-test:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Cypress tests
+        run: npx cypress run
