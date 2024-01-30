@@ -1,6 +1,6 @@
 const { defineConfig } = require('cypress')
 
-export default defineConfig({
+module.exports = defineConfig({
 
   e2e: {
     'baseUrl': 'http://localhost:4200'
