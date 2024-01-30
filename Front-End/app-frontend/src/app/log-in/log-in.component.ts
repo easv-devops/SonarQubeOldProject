@@ -8,6 +8,7 @@ import { BackendService } from '../backend.service';
   styleUrls: ['./log-in.component.css']
 })
 export class LogInComponent {
+  
 username: string = '';
 password: string = '';
 usernameReg : RegExp = /^[a-zA-Z ]{5,30}$/;
@@ -17,7 +18,7 @@ passwordReg : RegExp = /^(?=.*[A-Za-z\d])[A-Za-z\d]{6,}$/;
 
   constructor(
     private router: Router,
-   private backendService: BackendService
+    private backendService: BackendService
   ) { }
 
   logIn(){
