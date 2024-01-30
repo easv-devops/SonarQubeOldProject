@@ -61,5 +61,11 @@ jobs:
       - name: Install Cypress
         run: npm install --save-dev cypress  
 
+      - name: Open Front-end folder
+        run: cd Front-End
+
+      - name: Open test folder
+        run: cd app-frontend  
+
       - name: Run Cypress tests
         run: npx cypress run
