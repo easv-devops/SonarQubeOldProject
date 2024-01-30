@@ -25,7 +25,8 @@ describe('CourseComponent E2E Tests', () => {
     cy.get('#username').type('string');
     cy.get('#password').type('string');
     cy.get('#logIn').click();
-    cy.visit('/course/91');
+    cy.wait(500);
+    cy.visit('/course/80');
   });
 
   it('should display course details', () => {
@@ -46,6 +47,7 @@ describe('CreateCourseComponent E2E Tests', () => {
     cy.get('#username').type('string');
     cy.get('#password').type('string');
     cy.get('#logIn').click();
+    cy.wait(500);
     cy.visit('/create-course');
   });
 
@@ -66,6 +68,7 @@ describe('MyCoursesComponent E2E Tests', () => {
     cy.get('#username').type('string');
     cy.get('#password').type('string');
     cy.get('#logIn').click();
+    cy.wait(500);
     cy.visit('/my-courses');
   });
 
