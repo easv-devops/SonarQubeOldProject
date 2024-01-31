@@ -61,15 +61,11 @@ jobs:
       - name: Install Cypress
         run: npm install --save-dev cypress  
 
-      - name: Start Back-end
-        run: |
-             cd ./Back-End/api
-             dotnet run
+      
 
       - name: Run Cypress tests
         run: |
              cd ./Front-End/app-frontend
-             ng serve
              npx cypress run
  
       
