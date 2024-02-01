@@ -65,10 +65,11 @@ jobs:
 
       - name: Run Cypress tests
         run: |
-          cd ./Front-End/app-frontend 
-          npm install
-          ng serve
-          npx cypress run
+          npm ci
+          npm install -g serve
+          npm install -g wait-on
+          serve -s build & wait-on http://localhost:4200
+          npm run e2e
 
  
       
