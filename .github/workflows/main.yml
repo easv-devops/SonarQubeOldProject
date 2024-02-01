@@ -65,10 +65,10 @@ jobs:
 
       - name: Run Cypress tests
         run: |
-        cd ./Front-End/app-frontend 
-        npm i start-server-and-test
-        npm  start 
-        npx cypress run
+          cd ./Front-End/app-frontend 
+          npm i start-server-and-test
+          npm  start 
+          npx cypress run
 
  
       
