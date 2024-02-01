@@ -56,7 +56,7 @@ jobs:
           node-version: '14'
 
       - name: Install dependencies
-        run: npm install -g @angular/cli@15 & npm install
+        run: npm install -g @angular/cli@15 & npm install & npm i @angular-devkit/build-angular:dev-server
 
       - name: Install Cypress
         run: npm install --save-dev cypress  
