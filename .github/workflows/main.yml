@@ -69,6 +69,7 @@ jobs:
           npm install -g serve
           npm install -g wait-on
           npm install @angular-devkit/build-angular --force
+          npm i
           ng serve --port 4200 
           npx cypress run 
 
