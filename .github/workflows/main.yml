@@ -68,6 +68,7 @@ jobs:
           cd ./Front-End/app-frontend
           npm install -g serve
           npm install -g wait-on
+          npm install @angular-devkit/build-angular --force
           ng serve --port 4200 
           npx cypress run 
 
