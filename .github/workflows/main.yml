@@ -68,7 +68,7 @@ jobs:
           cd ./Front-End/app-frontend
           npm install -g serve
           npm install -g wait-on
-          ng serve  & npx cypress run 
+          ng serve --port 4200 & npx cypress run 
 
  
       
