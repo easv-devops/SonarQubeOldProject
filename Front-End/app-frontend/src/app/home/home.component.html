@@ -1,4 +1,6 @@
 <p class="most-popular">My courses</p>
+<div class="my-courses" routerLink="my-courses" id="my-courses" (click)="myCoursesButton()">My courses</div>
+
 
 <div class="courses" >
   <div class="course" *ngFor="let course of myCourses" (click)="selectCource(course)">

@@ -21,10 +21,10 @@ export class AppComponent implements OnInit {
   filteredCourses: any[] = [];
 
   ngOnInit(): void {
-    if(this.token==null){
+
       this.router.navigate(['login']);
 
-    }
+
 
   }
   title = 'app-frontend';

@@ -71,4 +71,9 @@ export class HomeComponent implements OnInit {
         break;
     }
   }
+
+  myCoursesButton(){
+    this.router.navigate(['my-courses']);
+
+  }
 }
