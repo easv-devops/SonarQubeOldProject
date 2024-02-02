@@ -68,7 +68,7 @@ jobs:
           cd ./Front-End/app-frontend
           npm install -g serve
           npm install -g wait-on
-          serve -l 4200 -s build & wait-on http://localhost:4200 & cd ../../Back-end/api & dotnet run & cd ../../Front-End/app-frontend & npm run e2e
+          ng serve & wait-on http://localhost:4200 & cd ../../Back-End/api & dotnet run & cd ../../Front-End/app-frontend & npm run e2e
 
  
       
