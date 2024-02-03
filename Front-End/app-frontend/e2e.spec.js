@@ -1,4 +1,5 @@
 const { describe, it, before, after } = require('@playwright/test');
+const { chromium } = require('@playwright/test');
 
 describe('E2E Test Suite', () => {
   let browser;
