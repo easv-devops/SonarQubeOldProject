@@ -43,4 +43,38 @@ jobs:
       - name: Shutdown Web API once the tests are done running
         run: kill $API_PID
 
+<<<<<<< HEAD
  
+=======
+  e2e-test:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+        run: npm install -g @angular/cli@15 & npm install 
+
+      - name: Install Cypress
+        run: npm install --save-dev cypress  
+
+      
+
+      - name: Run Cypress tests
+        run: |
+          cd ./Front-End/app-frontend
+          npm install -g serve
+          npm install -g wait-on
+          npm install -force
+          npm run build -- --prod
+          npx cypress run 
+
+ 
+      
+>>>>>>> parent of 5836be5e (Update main.yml)
