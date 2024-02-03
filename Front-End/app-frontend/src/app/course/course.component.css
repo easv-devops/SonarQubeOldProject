@@ -19,7 +19,6 @@
   width: 486px;
   height: 190px;
   flex-shrink: 0;
-  border-radius: 40px;
   background: #ffc436;
   display: flex;
   flex-direction: column;
@@ -49,7 +48,6 @@ iframe{
   width: 935px;
   height: 71px;
   flex-shrink: 0;
-  border-radius: 26px;
   background: #0174be;
   display: flex;
   align-items: center;
@@ -86,7 +84,6 @@ input {
   align-items: center;
   justify-content: center;
   margin: 60px;
-  border-radius: 20px;
   background-color: #FFC436 ;
   text-align: center;
   color: #fff;
@@ -96,7 +93,6 @@ input {
 .title-input {
   width: 887px;
   height: 97px;
-  border-radius: 40px;
   background: rgba(217, 217, 217, 0);
   margin-left: 33px;
   margin-top: 30px;
@@ -104,7 +100,6 @@ input {
 input {
   width: 887px;
   height: 97px;
-  border-radius: 40px;
   font-size: 60px;
 }
 .subtitle {
@@ -116,7 +111,6 @@ input {
   width: 935px;
   height: 100px;
   flex-shrink: 0;
-  border-radius: 40px;
   background: rgba(217, 217, 217, 0);
   background: #fff;
   color: #000;
@@ -128,7 +122,6 @@ input {
   width: 935px;
   height: 100px;
   flex-shrink: 0;
-  border-radius: 40px;
   background: rgba(217, 217, 217, 0);
   background: #fff;
   color: #000;
@@ -152,7 +145,6 @@ label{
 select{
   width: 200px;
   height: 50px;
-  border-radius: 30px;
   padding: 10px;
 }
 .level{
