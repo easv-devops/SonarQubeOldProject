@@ -32,8 +32,6 @@ input {
   border-radius: 26px;
   background: #fff;
   color: rgba(0, 0, 0, 0.5);
-
-  font-family: Inter;
   font-size: 50px;
   font-style: normal;
   font-weight: 400;
@@ -71,7 +69,6 @@ input {
 
 .log-in,
 .sign-up {
-  font-family: Inter;
   font-size: 35px;
   font-style: normal;
   font-weight: 800;
@@ -96,8 +93,6 @@ input {
   border-radius: 15px;
   background: #ffc436;
   color: #f2f2f2;
-
-  font-family: Inter;
   font-size: 35px;
   font-style: normal;
   font-weight: 800;
@@ -117,15 +112,12 @@ svg {
   justify-content: center;
 }
 
-
 .courses {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 30px;
   padding: 20px;
   padding-left: 30px;
-
-
 }
 
 .course {
@@ -150,8 +142,6 @@ border-radius: 20px;
     inset rgba(60, 70, 85, 0.5) 0px 0px 40px 0px,
     inset rgba(0, 0, 0, 1) 0px 0px 36px -24px;
     border-radius: 20px;
-
-  font-family: Inter;
   font-size: 35px;
   font-style: normal;
   font-weight: 400;
@@ -161,11 +151,8 @@ border-radius: 20px;
   justify-content: center;
 }
 
-
 .searched {
   color: #000;
-
-  font-family: Inter;
   font-size: 50px;
   font-style: normal;
   font-weight: 400;

@@ -1,7 +1,5 @@
 .course-title {
   color: #000;
-
-  font-family: Inter;
   font-size: 60px;
   font-style: normal;
   font-weight: 700;
@@ -11,8 +9,6 @@
 
 .subtitle {
   color: #000;
-
-  font-family: Inter;
   font-size: 50px;
   font-style: normal;
   font-weight: 400;
@@ -23,8 +19,6 @@
 .description-text {
   width: 1084px;
   color: #000;
-
-  font-family: Inter;
   font-size: 30px;
   font-style: normal;
   font-weight: 300;
@@ -43,8 +37,6 @@
   justify-content: center;
   align-items: center;
   color: #fff;
-
-  font-family: Inter;
   font-size: 60px;
   font-style: normal;
   font-weight: 700;
@@ -53,8 +45,6 @@
 
 .video-title {
   color: #000;
-
-  font-family: Inter;
   font-size: 50px;
   font-style: normal;
   font-weight: 400;
@@ -81,14 +71,11 @@ iframe{
   flex-shrink: 0;
   border-radius: 26px;
   border: 1px solid #000;
-
   background: #0174be;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #fff;
-
-  font-family: Inter;
   font-size: 40px;
   font-style: normal;
   font-weight: 400;
@@ -103,16 +90,12 @@ iframe{
   margin: 20px;
 }
 
-
-
-
 input {
   padding-left: 15px;
 }
 
 .video-URL {
   width: 935px;
-
   height: 71px;
   border: none;
   background: transparent;
@@ -139,13 +122,10 @@ input {
   background-color: #FFC436 ;
   text-align: center;
   color: #fff;
-  font-family: Inter;
   font-size: 40px;
   font-style: normal;
   font-weight: 800;
   line-height: normal;
-
-
 }
 
 .title-input {
@@ -153,9 +133,7 @@ input {
   height: 97px;
   border-radius: 40px;
   border: 1px solid #000;
-
   background: rgba(217, 217, 217, 0);
-
   margin-left: 33px;
   margin-top: 30px;
 }
@@ -164,7 +142,6 @@ input {
   width: 887px;
   height: 97px;
   border-radius: 40px;
-  font-family: Inter;
   font-size: 60px;
   font-style: normal;
   font-weight: 400;
@@ -173,7 +150,6 @@ input {
 .subtitle {
   color: #000;
 
-  font-family: Inter;
   font-size: 50px;
   font-style: normal;
   font-weight: 400;
@@ -187,12 +163,9 @@ input {
   flex-shrink: 0;
   border-radius: 40px;
   border: 1px solid #000;
-
   background: rgba(217, 217, 217, 0);
   background: #fff;
   color: #000;
-
-  font-family: Inter;
   font-size: 30px;
   font-style: normal;
   font-weight: 400;
@@ -207,12 +180,9 @@ input {
   flex-shrink: 0;
   border-radius: 40px;
   border: 1px solid #000;
-
   background: rgba(217, 217, 217, 0);
   background: #fff;
   color: #000;
-
-  font-family: Inter;
   font-size: 30px;
   font-style: normal;
   font-weight: 400;
@@ -234,7 +204,6 @@ input {
 
 label{
   color: #000;
-  font-family: Inter;
   font-size: 40px;
   font-style: normal;
   font-weight: 400;
@@ -251,12 +220,10 @@ select{
 
 .level{
   color: #000;
-  font-family: Inter;
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-
   margin-top: 10px;
   margin-left: 5px;
 }
