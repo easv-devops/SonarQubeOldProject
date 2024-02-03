@@ -13,9 +13,8 @@ jobs:
     - uses: actions/setup-node@v3
       with:
         node-version: 16
-
-    - name: Init project
-      run: npm init 
+    - name: Go to project
+      run: cd ./Front-End/app-frontend  
     - name: Install dependencies
       run: npm install 
     - name: Install Playwright Browsers
