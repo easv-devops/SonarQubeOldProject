@@ -13,6 +13,9 @@ jobs:
     - uses: actions/setup-node@v3
       with:
         node-version: 16
+
+    - name: Lock install
+      run: npm install --package-lock-only    
     - name: Install dependencies
       run: npm ci
     - name: Install Playwright Browsers
