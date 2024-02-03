@@ -3,7 +3,7 @@ const { defineConfig } = require('cypress')
 module.exports = defineConfig({
 
   e2e: {
-    'baseUrl': 'http://localhost:4200'
+    'baseUrl': 'https://daeducation-99d82.web.app/'
   },
 
 
