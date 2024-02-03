@@ -1,6 +1,5 @@
-const { chromium } = require('@playwright/test');
 
-const { test, expect } = require('@playwright/test');
+const { test, expect, chromium } = require('@playwright/test');
 
 test.describe('E2E Test Suite', () => {
   let browser;
