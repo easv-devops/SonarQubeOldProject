@@ -2,7 +2,7 @@ describe(' E2E Test Suite', () => {
 
 
   it('should visit the log-in page and perform some actions', () => {
-    cy.visit('/login');
+    cy.visit('/');
     cy.get('#username').type('string');
     cy.get('#password').type('string');
     cy.get('#logIn').click();
@@ -14,12 +14,12 @@ describe(' E2E Test Suite', () => {
 
 
   it('should navigate to another page and perform additional tests', () => {
-    cy.visit('/login');
+    cy.visit('/');
     cy.get('#username').type('string');
     cy.get('#password').type('string');
     cy.get('#logIn').click();
     cy.wait(500);
-    cy.visit('/my-courses');
+    cy.get('#my-courses').click();
     cy.get('.my-courses').should('contain', 'My courses');
 
   });
@@ -32,7 +32,7 @@ describe(' E2E Test Suite', () => {
 describe('MyCoursesComponent E2E Tests', () => {
 
   beforeEach(() => {
-    cy.visit('/login');
+    cy.visit('/');
     cy.get('#username').type('string');
     cy.get('#password').type('string');
     cy.get('#logIn').click();
@@ -54,7 +54,7 @@ describe('MyCoursesComponent E2E Tests', () => {
 describe('CreateCourseComponent E2E Tests', () => {
 
   it('should create a course with valid inputs', () => {
-    cy.visit('/login');
+    cy.visit('/');
     cy.get('#username').type('string');
     cy.get('#password').type('string');
     cy.get('#logIn').click();
