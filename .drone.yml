@@ -4,9 +4,9 @@ name: integration
 
 steps:
     -name: set-env-variable
-    -image: alpine
-    commands:
-      -export pgconn:'postgres://nsvoykar:V7aa5lQzmp2KCFApIJCdzix63BUdcnvz@snuffleupagus.db.elephantsql.com/nsvoykar'
+     image: alpine
+     commands:
+      - export pgconn:'postgres://nsvoykar:V7aa5lQzmp2KCFApIJCdzix63BUdcnvz@snuffleupagus.db.elephantsql.com/nsvoykar'
 
     - name: code-analysis
       image: boulundeasv/dotnet-sdk-with-java
