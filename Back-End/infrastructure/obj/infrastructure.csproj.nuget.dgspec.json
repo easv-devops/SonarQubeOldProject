@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/dimitar/Desktop/DA_Education_WebApp/Back-End/infrastructure/infrastructure.csproj": {}
+    "C:\\Users\\Atanas Stoyanov\\OneDrive - Erhvervsakademi Sydvest\\Skrivebord\\SonarQubeOldProject\\Back-End\\infrastructure\\infrastructure.csproj": {}
   },
   "projects": {
-    "/Users/dimitar/Desktop/DA_Education_WebApp/Back-End/Core/Core.csproj": {
+    "C:\\Users\\Atanas Stoyanov\\OneDrive - Erhvervsakademi Sydvest\\Skrivebord\\SonarQubeOldProject\\Back-End\\Core\\Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/dimitar/Desktop/DA_Education_WebApp/Back-End/Core/Core.csproj",
+        "projectUniqueName": "C:\\Users\\Atanas Stoyanov\\OneDrive - Erhvervsakademi Sydvest\\Skrivebord\\SonarQubeOldProject\\Back-End\\Core\\Core.csproj",
         "projectName": "Core",
-        "projectPath": "/Users/dimitar/Desktop/DA_Education_WebApp/Back-End/Core/Core.csproj",
-        "packagesPath": "/Users/dimitar/.nuget/packages/",
-        "outputPath": "/Users/dimitar/Desktop/DA_Education_WebApp/Back-End/Core/obj/",
+        "projectPath": "C:\\Users\\Atanas Stoyanov\\OneDrive - Erhvervsakademi Sydvest\\Skrivebord\\SonarQubeOldProject\\Back-End\\Core\\Core.csproj",
+        "packagesPath": "C:\\Users\\Atanas Stoyanov\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Atanas Stoyanov\\OneDrive - Erhvervsakademi Sydvest\\Skrivebord\\SonarQubeOldProject\\Back-End\\Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/dimitar/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Atanas Stoyanov\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -59,21 +59,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/dimitar/Desktop/DA_Education_WebApp/Back-End/infrastructure/infrastructure.csproj": {
+    "C:\\Users\\Atanas Stoyanov\\OneDrive - Erhvervsakademi Sydvest\\Skrivebord\\SonarQubeOldProject\\Back-End\\infrastructure\\infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/dimitar/Desktop/DA_Education_WebApp/Back-End/infrastructure/infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\Atanas Stoyanov\\OneDrive - Erhvervsakademi Sydvest\\Skrivebord\\SonarQubeOldProject\\Back-End\\infrastructure\\infrastructure.csproj",
         "projectName": "infrastructure",
-        "projectPath": "/Users/dimitar/Desktop/DA_Education_WebApp/Back-End/infrastructure/infrastructure.csproj",
-        "packagesPath": "/Users/dimitar/.nuget/packages/",
-        "outputPath": "/Users/dimitar/Desktop/DA_Education_WebApp/Back-End/infrastructure/obj/",
+        "projectPath": "C:\\Users\\Atanas Stoyanov\\OneDrive - Erhvervsakademi Sydvest\\Skrivebord\\SonarQubeOldProject\\Back-End\\infrastructure\\infrastructure.csproj",
+        "packagesPath": "C:\\Users\\Atanas Stoyanov\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Atanas Stoyanov\\OneDrive - Erhvervsakademi Sydvest\\Skrivebord\\SonarQubeOldProject\\Back-End\\infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/dimitar/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Atanas Stoyanov\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -85,8 +85,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "/Users/dimitar/Desktop/DA_Education_WebApp/Back-End/Core/Core.csproj": {
-                "projectPath": "/Users/dimitar/Desktop/DA_Education_WebApp/Back-End/Core/Core.csproj"
+              "C:\\Users\\Atanas Stoyanov\\OneDrive - Erhvervsakademi Sydvest\\Skrivebord\\SonarQubeOldProject\\Back-End\\Core\\Core.csproj": {
+                "projectPath": "C:\\Users\\Atanas Stoyanov\\OneDrive - Erhvervsakademi Sydvest\\Skrivebord\\SonarQubeOldProject\\Back-End\\Core\\Core.csproj"
               }
             }
           }
@@ -138,7 +138,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

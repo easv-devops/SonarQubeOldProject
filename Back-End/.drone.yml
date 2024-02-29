@@ -1,0 +1,11 @@
+kind: pipeline
+type: docker
+name: integration
+
+steps:
+    - name: code-analysis
+      image: 
+      commands:
+        - dotnet sonarscanner begin /k:"easv-devops_SonarQubeOldProject_AY32FFaJEVvRW2O60ESB" /d:sonar.host.url="http://sonar.setgo.dk:9000"  /d:sonar.token="sqp_52fd121da8d115ba448b60cdc33233f1bc387a4a"
+        - dotnet build
+        - dotnet sonarscanner end /d:sonar.token="sqp_52fd121da8d115ba448b60cdc33233f1bc387a4a"
