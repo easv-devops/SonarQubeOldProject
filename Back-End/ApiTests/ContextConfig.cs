@@ -14,7 +14,7 @@ namespace ApiTests
 
         static ContextConfig()
         {
-            var envVarKeyName = "pgconn";
+            var envVarKeyName = "postgres://nsvoykar:V7aa5lQzmp2KCFApIJCdzix63BUdcnvz@snuffleupagus.db.elephantsql.com/nsvoykar";
 
             var rawConnectionString = Environment.GetEnvironmentVariable(envVarKeyName);
             if (string.IsNullOrEmpty(rawConnectionString))
