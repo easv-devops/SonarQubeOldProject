@@ -3,6 +3,12 @@ type: docker
 name: integration
 
 steps:
+    - name: run-application
+      image: boulundeasv/dotnet-sdk-with-java
+      commands:
+        - cd Back-End/api
+        - dotnet run 
+
     - name: code-analysis
       image: boulundeasv/dotnet-sdk-with-java
       commands:
@@ -10,3 +16,8 @@ steps:
         - dotnet build --no-incremental
         - dotnet-coverage collect "dotnet test" -f xml -o "covarage.xml"
         - dotnet sonarscanner end /d:sonar.token="sqp_52fd121da8d115ba448b60cdc33233f1bc387a4a"
+
+    - name: sleep
+      image: alpine
+      commands:
+        - sleep 60  # Sleep for 60 seconds (adjust as needed)
