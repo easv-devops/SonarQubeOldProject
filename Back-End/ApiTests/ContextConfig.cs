@@ -17,14 +17,14 @@ namespace ApiTests
             var envVarKeyName = "postgres://nsvoykar:V7aa5lQzmp2KCFApIJCdzix63BUdcnvz@snuffleupagus.db.elephantsql.com/nsvoykar";
 
             var rawConnectionString = Environment.GetEnvironmentVariable(envVarKeyName);
-            if (string.IsNullOrEmpty(rawConnectionString))
+            if (string.IsNullOrEmpty(envVarKeyName))
             {
                 throw new Exception("Environment variable 'pgconn' is not set. Write this in your powershell terminal: ' $env:pgconn='pgconn'");
             }
 
             try
             {
-                var uri = new Uri(rawConnectionString);
+                var uri = new Uri(envVarKeyName);
                 var properlyFormattedConnectionString = new NpgsqlConnectionStringBuilder
                 {
                     Host = uri.Host,
